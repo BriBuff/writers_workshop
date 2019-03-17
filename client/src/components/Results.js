@@ -96,8 +96,5 @@ const insideRightSec={
     
     
 }
-const scrollSec={
-    width: "700px",
-    
-}
+
 export default Results;
