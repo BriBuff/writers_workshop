@@ -3,51 +3,34 @@ import React from "react";
 
 function Nav (){
     return(
-        <nav style={navStyle} className="Nav" >
-        <ul style={ulStyle}  >
-        <li style={liStyle}>
-        <a style={aStyle} href="/">
-            <h3>WRITER'S WORKSHOP</h3></a>
-        </li>
-       <li style={liStyle}>
-           <a style={aStyle} href="/"><p>Logged in as </p> </a>
-       </li>
-        
-        </ul>
-        </nav>
+        <nav className="navbar navbar-default ">
+        <div className="container">
+          <div className="navbar-header">
+            <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span className="sr-only">Toggle navigation</span>
+              <span className="icon-bar"></span>
+              <span className="icon-bar"></span>
+              <span className="icon-bar"></span>
+            </button>
+            <a className="navbar-brand" href="https://github.com">Writer's Workshop</a>
+          </div>
+          <div id="navbar" className="collapse navbar-collapse">
+            <ul className="nav navbar-nav">
+              <li className="active"><a href="https://github.com">Dashboard</a></li>  
+              <li><a href="https://github.com">Pages</a></li>
+              
+            </ul>
+            <ul className="nav navbar-nav navbar-right">
+                  <li><a href="https://github.com">Welcome, Kate</a></li>  
+                  <li><a href="https://github.com">Logout</a></li>
+                  
+                </ul>
+          </div>
+        </div>
+      </nav>
     );
 }
 
-
-
-const navStyle = {
-    
-    position:"fixed",
-    width:"100%",
-    zIndex:"3",
-    color: "#fff",
-    textAlign: "left",
-    backgroundColor: "#808080",
-    boxShadow: "0 14px 28px #202020",
-    border: "solid #A9A9A9 3px",
-    paddingLeft: "20px"
-    
-}
-const ulStyle = {
-    listStyleType: "none",
-   
-}
-const liStyle = {
-
-    display: "inline-block",
-    paddingLeft: "120px"
-}
-const aStyle = {
-    textDecoration: "none",
-    margin: "0",
-    padding: "0",
-    marginLeft: "-300px"
-}
 
 
 
