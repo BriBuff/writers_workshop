@@ -11,15 +11,11 @@ import Footer from "./components/Footer";
 
 class App extends Component {
   
-clickMe = () =>{
-  console.log("clicked");
-}
-  
   render() {
     return (
       <div className="App">
         <Nav />
-        <Header click={this.clickMe} />
+        <Header />
         <Middle />
         {/* <Middle /> render either Middle component or Page component */}
         <Footer />
