@@ -6,6 +6,8 @@ var UserSchema = new Schema({
         type: String,
         unique: true
     },
+    
+    password: String,
     projects :[
         {
             type: Schema.Types.ObjectId,

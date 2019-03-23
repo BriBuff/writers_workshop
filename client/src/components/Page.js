@@ -61,33 +61,14 @@ function Page(props){
                     </container>
                    
                    
-                    
+                   
                     </div>
-                    
-                    
                     </div>
-                
                 </div>
-            
-            
             </div>
-            
-            
-            
-            
             </div>
-            
-            
-            
-            
             </div>
-        
-        
-        
-        
         </section>
-
-
     );
 }
 
