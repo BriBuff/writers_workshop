@@ -13,7 +13,7 @@ function Nav (){
               <span className="icon-bar"></span>
               <span className="icon-bar"></span>
             </button>
-            <Link to="/" className={window.location.pathname === "/" ?"navbar-brand" :"nav-link"}> Writer's Workshop
+            <Link to="/" className={window.location.pathname === "/" ?"active" :"nav-link"}> Writer's Workshop
             </Link>
           </div>
           <div id="navbar" className="collapse navbar-collapse">
