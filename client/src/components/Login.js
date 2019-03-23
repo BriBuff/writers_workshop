@@ -41,7 +41,26 @@ function Login(props){
     return(
 
         <section id="main">
+          <nav className="navbar navbar-default ">
         <div className="container">
+          <div className="navbar-header">
+            <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span className="sr-only">Toggle navigation</span>
+              <span className="icon-bar"></span>
+              <span className="icon-bar"></span>
+              <span className="icon-bar"></span>
+            </button>
+           <div className ="active">Writer's Workshop</div> 
+          </div>
+          <div id="navbar" className="collapse navbar-collapse">
+            <ul className="nav navbar-nav">
+              </ul>
+            
+          </div>
+        </div>
+      </nav>
+        <div className="container">
+      
             <div className="row">
                 
                 <div className="col-md-4 col-md-offset-4">

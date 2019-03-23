@@ -1,14 +1,12 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./App.css";
-import Nav from "./components/Nav";
-import Header from "./components/Header";
 import Middle from "./components/Middle";
 import Footer from "./components/Footer";
 import Login from "./components/Login";
 import Page from "./components/Page";
-import Write from "./components/Write";
 var axios = require("axios");
+
 
 
 
@@ -33,13 +31,12 @@ class App extends Component {
     return (
       <Router>
       <div className="App">
-        <Nav />
-        <Header click={this.clickMe} />
         <Switch>
+
           <Route exact path= "/" component={Login} login={this.userLogin}/>
-          <Route exact path="/dashboard" component={Middle} name={this.state.name}/> 
-          <Route path="/pages" component={Page} />
-          <Route path="/pages" component={Write} />
+          <Route exact path="/dashboard" component={Middle} name={this.state.name}/>    
+          <Route exact path="/pages" component={Page} /> 
+
         </Switch>
         
         <Footer />

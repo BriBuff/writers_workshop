@@ -1,5 +1,7 @@
 import React from "react";
 import axios from "axios";
+import Nav from "./Nav";
+import Header from "./Header";
 
 
 class Middle extends React.Component{
@@ -28,6 +30,8 @@ class Middle extends React.Component{
         return(
             <section className="main">
             <div className="container">
+                 <Nav/>
+                 <Header/>
                 <div className="row">
                     <div className="col-md-3">
                             
@@ -81,59 +85,6 @@ class Middle extends React.Component{
 }
 
 
-
-// function Middle (props){
-//     return(
-//         <section className="main">
-//         <div className="container">
-//             <div className="row">
-//                 <div className="col-md-3">
-                        
-//                        <div>image or middle sec</div>
-                      
-//                 </div>
-
-
-                
-//                 <div className="col-md-9">
-                       
-//                               <div className="panel panel-default">
-//                                     <div className="panel-heading">
-//                                       <h3 className="panel-title">Latest Work for {props.name}</h3>
-//                                     </div>
-//                                     <div className="panel-body">
-//                                       <table className="table table-striped table-hover">
-//                                       <tbody>
-//                                       <tr>
-//                                               <th>Project Name</th>
-//                                               <th>Body</th>
-//                                               <th>Last Updated</th>
-                                              
-//                                           </tr>
-//                                           <tr>
-//                                               <td>Jill Smith</td>
-//                                               <td>js@yahoo.com</td>
-//                                               <td>Dec 30, 2018</td>
-                                              
-//                                           </tr>
-//                                           <tr>
-//                                               <td>{props.title}</td>
-//                                               <td>{props.body}</td>
-//                                               <td>{props.updated}</td>
-                                              
-//                                           </tr>
-  
-//                                       </tbody>
-                                         
-//                                       </table>
-//                                     </div>
-//                                   </div>
-//                 </div>
-//             </div>
-//         </div>
-//     </section>
-//     );
-// }
 
 
 export default Middle;

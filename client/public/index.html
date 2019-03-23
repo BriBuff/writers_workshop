@@ -16,7 +16,8 @@
     tinymce.init({
       selector: '#mytextarea',
       plugins: "save",
-      toolbar: "save"
+      toolbar: "save",
+      save_onsavecallback: function () { console.log('Saved'); }
     });
     </script>
   </head>
