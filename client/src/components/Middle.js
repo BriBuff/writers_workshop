@@ -1,10 +1,13 @@
 import React from "react";
-;
+import Nav from "./Nav";
+import Header from "./Header";
 
 function Middle (){
     return(
         <section className="main">
         <div className="container">
+            <Nav/>
+            <Header/>
             <div className="row">
                 <div className="col-md-3">
                         
