@@ -1,0 +1,6 @@
+// Exporting an object containing all of our models
+
+module.exports = {
+  Project: require("./Project"),
+  User: require("./User")
+};

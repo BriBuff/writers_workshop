@@ -15,10 +15,6 @@ import Write from "./components/Write";
 
 class App extends Component {
   
-clickMe = () =>{
-  console.log("clicked");
-}
-  
   render() {
     return (
       <Router>
