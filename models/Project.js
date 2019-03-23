@@ -6,7 +6,9 @@ var ProjectSchema = new Schema({
         type:String,
         unique: true
     },
-    body: String
+    body: String,
+    
+
 });
 
 var Project = mongoose.model("Project", ProjectSchema);

@@ -25,7 +25,7 @@ function Page(){
                     <input className="form-control" type="text" placeholder="Filter pages...."></input> 
                     </div>
                     <table className="table table-striped table-hover">
-                    
+                    <tbody>
                         <tr>
                             <th>Title</th>
                             <th>Published</th>
@@ -38,37 +38,16 @@ function Page(){
                             <td>Dec 12, 2018</td>
                             <td><a className="btn btn-default" href="edit.html">Edit</a><a className = "btn btn-danger" href="#">Delete</a></td>
                         </tr>
-                    
+                        </tbody>
                     
                     </table>
-                   
-                    
                     </div>
-                    
-                    
                     </div>
-                
                 </div>
-            
-            
             </div>
-            
-            
-            
-            
             </div>
-            
-            
-            
-            
             </div>
-        
-        
-        
-        
         </section>
-
-
     );
 }
 

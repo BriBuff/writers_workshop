@@ -8,12 +8,26 @@ import Footer from "./components/Footer";
 import Login from "./components/Login";
 import Page from "./components/Page";
 import Write from "./components/Write";
+var axios = require("axios");
 
 
 
 
 
 class App extends Component {
+
+    state={
+      name: "Jessica",
+      password: ""
+    }
+  
+    userLogin = (name) => {
+      axios.get("/dashboard/" + name)
+      .then(res => this.setState(
+        {name: res.name },
+        {password: res.password}))
+      .catch(err => console.log(err));
+    }
   
   render() {
     return (
@@ -22,12 +36,12 @@ class App extends Component {
         <Nav />
         <Header click={this.clickMe} />
         <Switch>
-          <Route exact path= "/" component={Login} />
-          <Route exact path="/dashboard" component={Middle} /> 
+          <Route exact path= "/" component={Login} login={this.userLogin}/>
+          <Route exact path="/dashboard" component={Middle} name={this.state.name}/> 
           <Route path="/pages" component={Page} />
           <Route path="/pages" component={Write} />
         </Switch>
-        {/* <Middle /> render either Middle component or Page component */}
+        
         <Footer />
         
       </div>
