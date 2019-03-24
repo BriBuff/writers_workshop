@@ -1,5 +1,9 @@
 import React from "react";
+<<<<<<< HEAD
 // import axios from "axios";
+=======
+
+>>>>>>> 98777c3094f8f41faef24cb526ce3a586fd39770
 import Nav from "./Nav";
 import Header from "./Header";
 
@@ -9,38 +13,24 @@ class Middle extends React.Component{
     state = {
         title: "Kate",
         project: "kate's project",
-        body: "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator.",
+        body: "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some",
         updated: "March 1, 2019"
     }
-    // componentDidMount() {
-    //     this.loadUser();
-    //   }
     
-    //   loadUser = () => {
-    //     axios.get("/dashboard/" + this.state.name)
-    //       .then(res => this.setState(
-    //           { name: res.name }, 
-    //           {project: res.project_title},
-    //           {body: res.body},
-    //           {upated: res.updated}
-    //           )).catch(err => console.log(err));
-    //   };
 
     render(){
         return(
             <section className="main">
+            <Nav/>
+            <Header/>
             <div className="container">
-                 <Nav/>
-                 <Header/>
+                
                 <div className="row">
                     <div className="col-md-3">
                             
                            <div>image or middle sec</div>
                           
                     </div>
-    
-    
-                    
                     <div className="col-md-9">
                            
                                   <div className="panel panel-default">

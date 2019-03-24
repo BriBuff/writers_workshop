@@ -11,34 +11,32 @@ var axios = require("axios");
 
 
 
-
 class App extends Component {
 
-    state={
-      name: "Jessica",
-      password: ""
-    }
-  
-    userLogin = (name) => {
-      axios.get("/dashboard/" + name)
-      .then(res => this.setState(
-        {name: res.name },
-        {password: res.password}))
-      .catch(err => console.log(err));
-    }
+  state={
+    name: "Jessica",
+    password: ""
+  }
+
+  userLogin = (name) => {
+    axios.get("/dashboard/" + name)
+    .then(res => this.setState(
+      {name: res.name },
+      {password: res.password}))
+    .catch(err => console.log(err));
+  }
   
   render() {
     return (
+      
       <Router>
       <div className="App">
         <Switch>
-
-          <Route exact path= "/" component={Login} login={this.userLogin}/>
-          <Route exact path="/dashboard" component={Middle} name={this.state.name}/>    
+          <Route exact path= "/" component={Login} />
+          <Route exact path="/dashboard" component={Middle} /> 
           <Route exact path="/pages" component={Page} /> 
-
         </Switch>
-        
+        {/* <Middle /> render either Middle component or Page component */}
         <Footer />
         
       </div>
