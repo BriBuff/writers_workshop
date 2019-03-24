@@ -1,4 +1,5 @@
 import React from "react";
+import {Link} from "react-router-dom"
 
 
 function Nav (){
@@ -12,17 +13,24 @@ function Nav (){
               <span className="icon-bar"></span>
               <span className="icon-bar"></span>
             </button>
-            <a className="navbar-brand" href="https://github.com">Writer's Workshop</a>
+            <Link to="/" className={window.location.pathname === "/" ?"active" :"nav-link"}> Writer's Workshop
+            </Link>
           </div>
           <div id="navbar" className="collapse navbar-collapse">
             <ul className="nav navbar-nav">
-              <li className="active"><a href="https://github.com">Dashboard</a></li>  
-              <li><a href="https://github.com">Pages</a></li>
+            <li>
+              <Link to ="/dashboard" className={window.location.pathname === "/dashboard" ?"active" : "nav-link"}>Dashboard
+              </Link>  
+            </li>
+              <li>
+                <Link to ="/pages" className={window.location.pathname === "/pages" ?"active" : "nav-link"}>Pages
+                </Link>
+                </li>
               
             </ul>
             <ul className="nav navbar-nav navbar-right">
-                  <li><a href="https://github.com">Welcome, Kate</a></li>  
-                  <li><a href="https://github.com">Logout</a></li>
+                  <li>Welcome, Kate</li>  
+                  <li>Logout</li>
                   
                 </ul>
           </div>
