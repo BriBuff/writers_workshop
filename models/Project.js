@@ -5,8 +5,13 @@ var ProjectSchema = new Schema({
     title: {
         type:String,
         unique: true
+       
     },
     body: String,
+    author: {
+        type: Schema.Types.ObjectId,
+        ref: "User"
+    }
     
 
 });

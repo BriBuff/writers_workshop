@@ -5,15 +5,14 @@ var UserSchema = new Schema({
     name: {
         type: String,
         unique: true
+       
     },
-    
     password: String,
     projects :[
         {
             type: Schema.Types.ObjectId,
             ref: "Project"
         }
-       
     ]
 });
 
