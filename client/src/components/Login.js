@@ -14,7 +14,7 @@ function Login(props){
               <span className="icon-bar"></span>
               <span className="icon-bar"></span>
             </button>
-           <div className ="active">Writer's Workshop</div> 
+           <div className ="active"  aria-hidden="true">Writer's Workshop</div> 
           </div>
           <div id="navbar" className="collapse navbar-collapse">
             <ul className="nav navbar-nav">
