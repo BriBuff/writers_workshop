@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function Header (props) {
     return(
@@ -17,9 +18,9 @@ function Header (props) {
                         <span className="caret"></span>
                       </button>
                       <ul className="dropdown-menu" aria-labelledby="dropdownMenu1">
-                        <li><a href="https://github.com" type="button" data-toggle="modal" data-target="#addPage" onClick={props.click}>Add Page</a></li>
-                         <li><a href="https://github.com" onClick={props.click}>Add Post</a></li>
-                        <li><a href="https://github.com"onClick={props.click}>Add User</a></li> 
+                        <li><Link to="/dashboard">Add Project</Link></li>
+                         <li><Link to="/pages">Add Page</Link></li>
+                        <li><Link to="/pages">Add Plan</Link></li> 
                       </ul>
                     </div>
             </div>
