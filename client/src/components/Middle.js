@@ -1,9 +1,4 @@
 import React from "react";
-<<<<<<< HEAD
-// import axios from "axios";
-=======
-
->>>>>>> 98777c3094f8f41faef24cb526ce3a586fd39770
 import Nav from "./Nav";
 import Header from "./Header";
 
