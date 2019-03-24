@@ -9,9 +9,10 @@ function Page(props){
     
         
         <section className="main">
-            <div className="container">
-            <Nav/>
+        <Nav/>
             <Header/>
+            <div className="container">
+            
             <div className="row">
             <div className="col-md-3">
                 <div className="list-group">
@@ -57,10 +58,7 @@ function Page(props){
                     </tbody>
                     </table>
                     <container>
-                    
                     </container>
-                   
-                   
                    
                     </div>
                     </div>
@@ -68,6 +66,7 @@ function Page(props){
             </div>
             </div>
             </div>
+            <div style={{height: "400px"}}></div>
         </section>
     );
 }

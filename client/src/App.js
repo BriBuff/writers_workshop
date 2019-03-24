@@ -15,7 +15,7 @@ var axios = require("axios");
 class App extends Component {
 
     state={
-      name: "Jessica",
+      name: "",
       password: ""
     }
   
@@ -29,6 +29,7 @@ class App extends Component {
   
   render() {
     return (
+      
       <Router>
       <div className="App">
         <Switch>
