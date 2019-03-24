@@ -9,8 +9,8 @@ import classNames from "./Plan/src/index.css";
 class Page extends React.Component {
     state = {
       color: "#ffc600",
-      width: 800,
-      height: 1500,
+      width: 600,
+      height: 700,
       brushRadius: 10,
       lazyRadius: 12
     };
@@ -37,36 +37,17 @@ render() {
                 <span className="glyphicon glyphicon-list" aria-hidden="true"></span>  Pages <span className="badge">12</span>
                 </div>
                 </div>
-                </div>
-            <div className="container">
-            <div className="row">
+               
             <div className="col-md-5">
                 <Write/>
-            </div>
-            </div>
+            
             <div style={{height: "400px"}}></div>
+            </div>
 
-{/* class Plan extends Component {
-  state = {
-    color: "#ffc600",
-    width: 800,
-    height: 1500,
-    brushRadius: 10,
-    lazyRadius: 12
-  };
-  componentDidMount() {
-    // let's change the color randomly every 2 seconds. fun!
-    window.setInterval(() => {
-      this.setState({
-        color: "#" + Math.floor(Math.random() * 16777215).toString(16)
-      });
-    }, 2000);
-  } */}
- 
+            <div className="container">
             <div className="row">
-            <div className="col-md-3">
-        <h2>Save & Load</h2>
-        <p>Try it out! Draw something, hit "Save" and then "Load".</p>
+            <div className="col-md-4">
+        <h2>Plan</h2>
         <div className={classNames.tools}>
           <button
             onClick={() => {
@@ -151,6 +132,8 @@ render() {
       </div>
       </div>
       </div>
+      </div>
+    
 
 
         </section>
