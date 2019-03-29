@@ -14,22 +14,44 @@ var axios = require("axios");
 class App extends Component {
 
   state={
-    name: "Jessica",
-    password: ""
-  }
+    name: "",
+    password: "",
+    projects: []
 
-  userLogin = (name) => {
-    axios.get("/dashboard/" + name)
-    .then(res => this.setState(
-      {name: res.name },
-      {password: res.password}))
-    .catch(err => console.log(err));
   }
+componentDidMount()
+{
+  axios.get("/dashboard")
+  .then(res => {
+    let projArray = [];
+
+    res.data[0].projects.forEach((p)=>{
+      
+      let proj = {};
+      proj.title = p.title;
+      proj.body = p.body;
+      proj.id = p._id;
+      projArray.push(proj);
+    });
+    
+    this.setState(
+        {name: res.data[0].name, password: res.data[0].password, projects: projArray }
+        );
+
+  })
+  // .then(res =>console.log(JSON.stringify(res.data[0].projects)))
+ .catch(err => console.log(err))
+}
 
   handleEditorChange = (e) => {
     console.log('Content was updated:', e.target.getContent());
   }
+
   
+
+  
+
+
   render() {
     return (
       
@@ -37,10 +59,11 @@ class App extends Component {
       <div className="App">
         <Switch>
           <Route exact path= "/" component={Login} />
-          <Route exact path="/dashboard" component={Middle} /> 
-          <Route exact path="/pages" component={Page} /> 
+          
+          <Route exact path="/dashboard" render={()=><Middle name={this.state.name} password={this.state.password}  projects={this.state.projects}  />}  />
+          <Route exact path="/pages" render={()=><Page />} /> 
         </Switch>
-        {/* <Middle /> render either Middle component or Page component */}
+        
         <Footer />
         
       </div>

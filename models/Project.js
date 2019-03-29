@@ -3,11 +3,12 @@ var Schema = mongoose.Schema;
 
 var ProjectSchema = new Schema({
     title: {
-        type:String,
-        unique: true
-       
+        type:String
+        
     },
-    body: String,
+    body: {
+        type:String
+    },
     author: {
         type: Schema.Types.ObjectId,
         ref: "User"

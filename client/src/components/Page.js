@@ -1,12 +1,12 @@
 import React, { Component } from "react";
-import { render } from "react-dom";
+// import { render } from "react-dom";
 import Nav from "./Nav";
 import Header from "./Header";
 import Write from "./Write";
 import CanvasDraw from "./Plan/src/";
 import classNames from "./Plan/src/index.css";
 
-class Page extends React.Component {
+class Page extends Component {
     state = {
       color: "#ffc600",
       width: 600,
