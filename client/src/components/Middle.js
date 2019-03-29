@@ -1,17 +1,50 @@
 import React from "react";
 import Nav from "./Nav";
 import Header from "./Header";
+var axios = require("axios");
 
 
 class Middle extends React.Component{
 
-    // state = {
-    //     title: "Kate",
-    //     project: "kate's project",
-    //     body: "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some",
-    //     updated: "March 1, 2019"
-    // }
+
+
+  state={
+    name: "",
+    password: "",
+    projects: []
+
+  }
+
     
+componentDidMount()
+{
+
+  
+  axios.get("/dashboard")
+  .then(res => {
+    let projArray = [];
+    
+    res.data[0].projects.forEach((p)=>{
+      
+      let proj = {};
+      proj.title = p.title;
+      proj.body = p.body;
+      proj.id = p._id;
+      projArray.push(proj);
+    });
+    
+    
+
+    this.setState(
+        {name: res.data[0].name, password: res.data[0].password, projects: projArray }
+        );
+
+  })
+  // .then(res =>console.log(JSON.stringify(res.data[0].projects)))
+ .catch(err => console.log(err))
+}
+
+
 
     render(){
         return(
@@ -30,7 +63,7 @@ class Middle extends React.Component{
                            
                                   <div className="panel panel-default">
                                         <div className="panel-heading">
-                                          <h3 className="panel-title">Latest Work for {this.props.name}</h3>
+                                          <h3 className="panel-title">Latest Work for {this.state.name}</h3>
                                         </div>
                                         <div className="panel-body">
                                           <table className="table table-striped table-hover">
@@ -41,7 +74,7 @@ class Middle extends React.Component{
                                                   <th></th>
                                               </tr>
                                               
-                                               {this.props.projects.map(proj =>
+                                               {this.state.projects.map(proj =>
                                                    
                                                     <tr>
 
