@@ -42,6 +42,11 @@ componentDidMount()
   // .then(res =>console.log(JSON.stringify(res.data[0].projects)))
  .catch(err => console.log(err))
 }
+
+  handleEditorChange = (e) => {
+    console.log('Content was updated:', e.target.getContent());
+  }
+
   
 
   
