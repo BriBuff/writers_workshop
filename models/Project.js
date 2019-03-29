@@ -12,8 +12,6 @@ var ProjectSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: "User"
     }
-    
-
 });
 
 var Project = mongoose.model("Project", ProjectSchema);

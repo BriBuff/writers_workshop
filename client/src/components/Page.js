@@ -66,6 +66,7 @@ render() {
                 "savedDrawing",
                 this.saveableCanvas.getSaveData()
               );
+              console.log("info", this.saveableCanvas.getSaveData())
             }}
           >
             Save
