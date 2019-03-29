@@ -16,35 +16,46 @@ if (process.env.NODE_ENV === "production") {
 mongoose.connect("mongodb://localhost/writersworkshopdb", { useNewUrlParser: true });
 
 
-db.User.create(
-  {name: "bri", password:"katekate"})
-  .then(function(dbUser){
-  console.log("user create" + dbUser)
-})
-.catch(function(err){
-  console.log(err.message);
-});
+// db.User.create(
+//   {name: "bri", password:"katekate"})
+//   .then(function(dbUser){
+//   console.log("user create" + dbUser)
+// })
+// .catch(function(err){
+//   console.log(err.message);
+// });
 
-db.Project.create({
-title: "bri project",
-body: "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even" 
-}).then(function(dbProject){
+// db.Project.create({
+// title: "second project",
+// body: "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even" 
+// }).then(function(dbProject){
 
-  return db.User.update({}, { $push: { projects: dbProject._id } }, { new: true })
-}).then(function(dbUser){
-  console.log("user here" + dbUser)
+//   return db.User.findOneAndUpdate({}, { $push: { projects: dbProject._id } }, { new: true })
+// }).then(function(dbUser){
+//   console.log("user here" + dbUser)
   
-})
-.catch(function(err){
-  console.log(err);
-});
+// })
+// .catch(function(err){
+//   console.log(err);
+// });
 
-
-
-app.get("/dashboard/:name", function(req, res){
+app.get("/dashboard", function(req, res){
   
   db.User.find({
+    
+  }).populate("projects")
+  .then(function(theUser){
+   
+    res.json(theUser)
+  }).catch(function(err){
+    res.json(err.message);
+  })
+});
 
+app.get("/dashboard/:id", function(req, res){
+  
+  db.User.find({
+    _id:req.params.id
   }).populate("projects")
   .then(function(theUser){
     console.log(theUser)
@@ -52,6 +63,13 @@ app.get("/dashboard/:name", function(req, res){
   }).catch(function(err){
     res.json(err.message);
   })
+});
+
+app.get("/pages/:id", function(req,res){
+    db.Project.find({
+      _id: parseInt(req.params.id)
+    }).then(user=>console.log("**************the user********" +user))
+    .catch((err) => {console.log(err)});
 });
 // Send every other request to the React app
 // Define any API routes before this runs

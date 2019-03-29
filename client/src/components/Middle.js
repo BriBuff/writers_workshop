@@ -5,12 +5,12 @@ import Header from "./Header";
 
 class Middle extends React.Component{
 
-    state = {
-        title: "Kate",
-        project: "kate's project",
-        body: "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some",
-        updated: "March 1, 2019"
-    }
+    // state = {
+    //     title: "Kate",
+    //     project: "kate's project",
+    //     body: "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some",
+    //     updated: "March 1, 2019"
+    // }
     
 
     render(){
@@ -35,25 +35,27 @@ class Middle extends React.Component{
                                         <div className="panel-body">
                                           <table className="table table-striped table-hover">
                                           <tbody>
-                                          <tr>
+                                            <tr>
                                                   <th>Project Name</th>
                                                   <th>Body</th>
-                                                  <th>Last Updated</th>
-                                                  
+                                                  <th></th>
                                               </tr>
-                                              <tr>
-                                                  <td>Jill's project</td>
-                                                  <td>body body body body body body body body body body body body body body body</td>
-                                                  <td>Dec 30, 2018</td>
-                                                  
-                                              </tr>
+                                              
+                                               {this.props.projects.map(proj =>
+                                                   
+                                                    <tr>
 
-                                              <tr>
-                                                  <td>{this.state.title}</td>
-                                                  <td>{this.state.body}</td>
-                                                  <td>{this.state.updated}</td>
-                                                  
-                                              </tr>
+                                                    <td>{proj.title}</td>
+                                                    <td>{proj.body}</td>
+                                                    <td>
+                                                    
+                                                    <button><a href={"/pages/" + proj.id}>Edit</a></button>
+                                                    </td>
+                                                    
+                                                    </tr>
+                
+                                               )} 
+                                              
       
                                           </tbody>
                                              
