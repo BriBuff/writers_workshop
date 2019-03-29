@@ -4,6 +4,7 @@ const PORT = process.env.PORT || 3001;
 const app = express();
 var mongoose = require("mongoose");
 
+
 var db = require("./models");
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
@@ -17,7 +18,7 @@ mongoose.connect("mongodb://localhost/writersworkshopdb", { useNewUrlParser: tru
 
 
 // db.User.create(
-//   {name: "bri", password:"katekate"})
+//   {name: "kate", password:"kattttte"})
 //   .then(function(dbUser){
 //   console.log("user create" + dbUser)
 // })
@@ -26,11 +27,11 @@ mongoose.connect("mongodb://localhost/writersworkshopdb", { useNewUrlParser: tru
 // });
 
 // db.Project.create({
-// title: "second project",
-// body: "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even" 
+// title: "kate project",
+// body: "ehllo I lover yuuuu ehllo I lover yuuuuehllo I lover yuuuuehllo I lover yuuuuehllo I lover yuuuu" 
 // }).then(function(dbProject){
 
-//   return db.User.findOneAndUpdate({}, { $push: { projects: dbProject._id } }, { new: true })
+//   return db.User.findOneAndUpdate({_id: "5c9e52211f4fea528494e818"}, { $push: { projects: dbProject._id } }, { new: true })
 // }).then(function(dbUser){
 //   console.log("user here" + dbUser)
   
@@ -39,8 +40,26 @@ mongoose.connect("mongodb://localhost/writersworkshopdb", { useNewUrlParser: tru
 //   console.log(err);
 // });
 
+
+app.get("/pages/:id", function(req, res){
+  console.log("inside pages/id");
+  console.log("req.params.id: " + req.params.id);
+
+  res.send("Hello");
+  // db.Project.findOne({
+  //   _id: req.params.id
+  // })
+  // .then(function(theProj){
+  //   console.log("dash id " + theProj)
+  //   res.json(theProj)
+  // }).catch(function(err){
+  //   res.json(err.message);
+  // })
+});
+
+
 app.get("/dashboard", function(req, res){
-  
+  console.log("here1");
   db.User.find({
     
   }).populate("projects")
@@ -52,27 +71,19 @@ app.get("/dashboard", function(req, res){
   })
 });
 
-app.get("/dashboard/:id", function(req, res){
-  
-  db.User.find({
-    _id:req.params.id
-  }).populate("projects")
-  .then(function(theUser){
-    console.log(theUser)
-    res.json(theUser)
-  }).catch(function(err){
-    res.json(err.message);
-  })
-});
 
-app.get("/pages/:id", function(req,res){
-    db.Project.find({
-      _id: parseInt(req.params.id)
-    }).then(user=>console.log("**************the user********" +user))
-    .catch((err) => {console.log(err)});
-});
+
+
+
+
+
+
+
 // Send every other request to the React app
 // Define any API routes before this runs
+
+
+
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "./client/build/index.html"));
 });

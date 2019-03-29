@@ -5,6 +5,8 @@ import Header from "./Header";
 import Write from "./Write";
 import CanvasDraw from "./Plan/src/";
 import classNames from "./Plan/src/index.css";
+var axios = require("axios");
+
 
 class Page extends Component {
     state = {
@@ -12,15 +14,24 @@ class Page extends Component {
       width: 600,
       height: 700,
       brushRadius: 10,
-      lazyRadius: 12
+      lazyRadius: 12,
+      title: "",
+      body: ""
     };
     componentDidMount() {
       // let's change the color randomly every 2 seconds. fun!
-      window.setInterval(() => {
-        this.setState({
-          color: "#" + Math.floor(Math.random() * 16777215).toString(16)
-        });
-      }, 2000);
+      // window.setInterval(() => {
+      //   this.setState({
+      //     color: "#" + Math.floor(Math.random() * 16777215).toString(16)
+      //   });
+      // }, 2000);
+
+
+      axios.get("/pages/:id").then( page => {
+        console.log("we got here");
+        console.log(JSON.stringify(page))
+      }).catch(err=> console.log(err));
+
     }
 
 render() {
