@@ -12,16 +12,17 @@ class Page extends React.Component {
       width: 600,
       height: 700,
       brushRadius: 10,
-      lazyRadius: 12
+      lazyRadius: 12,
     };
     componentDidMount() {
       // let's change the color randomly every 2 seconds. fun!
       window.setInterval(() => {
         this.setState({
-          color: "#" + Math.floor(Math.random() * 16777215).toString(16)
+          color: "#000000"
         });
-      }, 2000);
+      });
     }
+
 
 render() {
     return(
@@ -49,6 +50,16 @@ render() {
             <div className="col-md-4">
         <h2>Plan</h2>
         <div className={classNames.tools}>
+        <button
+            onClick={() => {
+              localStorage.setItem(
+                "savedDrawing",
+                this.saveableCanvas.getSaveData()
+              );
+            }}
+          >
+            New
+          </button>
           <button
             onClick={() => {
               localStorage.setItem(
@@ -73,12 +84,6 @@ render() {
           >
             Undo
           </button>
-          <button
-          onClick={() => {
-            this.textBox()
-          }}>
-            Text
-          </button>
           <div>
             <label>Brush-Radius:</label>
             <input
@@ -102,16 +107,13 @@ render() {
         </div>
         <CanvasDraw
           ref={canvasDraw => (this.saveableCanvas = canvasDraw)}
+          saveData={localStorage.getItem("savedDrawing")}
           brushColor={this.state.color}
           brushRadius={this.state.brushRadius}
           lazyRadius={this.state.lazyRadius}
           canvasWidth={this.state.width}
           canvasHeight={this.state.height}
         />
-        <p>
-          The following is a disabled canvas with a hidden grid that we use to
-          load & show your saved drawing.
-        </p>
         <button
           onClick={() => {
             this.loadableCanvas.loadSaveData(
@@ -124,8 +126,6 @@ render() {
           the `saveData` prop:
         </button>
         <CanvasDraw
-          disabled
-          hideGrid
           ref={canvasDraw => (this.loadableCanvas = canvasDraw)}
           saveData={localStorage.getItem("savedDrawing")}
         />

@@ -177,18 +177,6 @@ export default class extends PureComponent {
     });
   };
 
-  textBox = () => {
-    //   return {
-    //   <div class="wrap">
-    //   <div id="mydiv">
-    //   <textarea id="go">Type Here</textarea>
-    //   <div id="mydivheader">
-    //     Click to drag
-    //   </div>
-    //   </div>
-    // }}
-  }
-
   loadSaveData = (saveData, immediate = this.props.immediateLoading) => {
     if (typeof saveData !== "string") {
       throw new Error("saveData needs to be of type string!");
@@ -567,7 +555,8 @@ export default class extends PureComponent {
               onTouchMove={isInterface ? this.handleTouchMove : undefined}
               onTouchEnd={isInterface ? this.handleTouchEnd : undefined}
               onTouchCancel={isInterface ? this.handleTouchEnd : undefined}
-            />
+              >
+              </canvas>
           );
         })}
       </div>
