@@ -23,29 +23,10 @@ class App extends Component {
 
 
 
-// componentDidMount()
-// {
-//   axios.get("/dashboard")
-//   .then(res => {
-//     let projArray = [];
-    
-//     res.data[0].projects.forEach((p)=>{
-      
-//       let proj = {};
-//       proj.title = p.title;
-//       proj.body = p.body;
-//       proj.id = p._id;
-//       projArray.push(proj);
-//     });
-    
-//     this.setState(
-//         {name: res.data[0].name, password: res.data[0].password, projects: projArray }
-//         );
 
-//   })
-//   // .then(res =>console.log(JSON.stringify(res.data[0].projects)))
-//  .catch(err => console.log(err))
-// }
+
+
+
   
 
   
