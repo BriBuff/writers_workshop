@@ -25,6 +25,10 @@ class App extends Component {
       {password: res.password}))
     .catch(err => console.log(err));
   }
+
+  handleEditorChange = (e) => {
+    console.log('Content was updated:', e.target.getContent());
+  }
   
   render() {
     return (
