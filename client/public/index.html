@@ -19,8 +19,14 @@
     tinymce.init({
       selector: '#mytextarea',
       plugins: "save",
-      toolbar: "save",
-      save_onsavecallback: function () { console.log('Saved'); }
+      toolbar: "undo redo | bold italic | alignleft aligncenter alignright | save",
+      save_onsavecallback: function () { console.log('Saved'); },
+      file_picker_callback: function(callback, value, meta) {
+    // Provide file and text for the link dialog
+    if (meta.filetype == 'file') {
+      callback('mypage.html', {text: 'My text'});
+    }
+    }
     });
     </script>
   </head>
