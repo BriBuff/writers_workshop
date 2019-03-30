@@ -7,10 +7,11 @@ class Middle extends React.Component{
 
 
 
-
     render(){
 
         return(
+
+          
             <section className="main">
             <Nav/>
             <Header/>
@@ -37,9 +38,10 @@ class Middle extends React.Component{
                                                   <th></th>
                                               </tr>
                                               
-                                               {this.props.projects.map(proj=>{
+                                               {this.props.projects &&        this.props.projects.length && 
+                                                 this.props.projects.map(proj=>{
+                                                  
                                                  return (
-
                                                   <tr>
                                                   <td>{proj.title}</td>
                                                   <td>{proj.body}</td>

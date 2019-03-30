@@ -1,5 +1,6 @@
 import React from "react";
 import Middle from "./Middle";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 var axios = require("axios");
 
 
@@ -26,12 +27,11 @@ class Login extends React.Component{
   }
   
   findUser = () =>{
-    console.log("this.state.name: " + this.state.name);
-    console.log("this.password.name: " + this.state.password);
+    
 
     axios.get("/login").then(res=>{
 
-      console.log("res: " + JSON.stringify(res.data));
+      
 
         const projArray = [];
 
@@ -43,6 +43,7 @@ class Login extends React.Component{
         } else {
          
           projArray.push(res.data[i].projects[0])
+          console.log("this data; " + JSON.stringify(res.data[i].projects[0]) )
         }
       } 
           this.setState({projects: projArray, isUser: true});
@@ -53,11 +54,19 @@ class Login extends React.Component{
 
   }
 
-  renderMiddle = () => {
-    if (this.state.isUser === true) {
-      return <Middle name={this.state.name} key={this.state.name} projects={this.state.projects} />
+  renderMiddle = () => { 
+    return(
+    <Router>
+      
+     {this.state.isUser ? 
+    <Route exact path="/dashboard" render={()=><Middle name={this.state.name} password={this.state.password}  projects={this.state.projects} />} /> :
+     <Route exact path= "/" component={Login} /> }
+
+    </Router>
+    )
+    
   }
-}
+
 
 
   render(){
@@ -113,7 +122,8 @@ class Login extends React.Component{
                     </div>
                     <button onClick={this.findUser} type="submit" className="btn btn-default btn-block">Login</button>
 
-                    {this.state.isUser ? <Middle name={this.state.name} key={this.state.name} projects={this.state.projects} /> :  }
+                    
+                    {this.renderMiddle()}
                 </form>
                             
               </div>
