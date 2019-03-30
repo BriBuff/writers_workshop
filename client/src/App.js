@@ -5,7 +5,7 @@ import Middle from "./components/Middle";
 import Footer from "./components/Footer";
 import Login from "./components/Login";
 import Page from "./components/Page";
-// var axios = require("axios");
+
 
 
 
@@ -13,23 +13,7 @@ import Page from "./components/Page";
 
 class App extends Component {
 
-  state={
-    name: "",
-    password: "",
-    projects: []
-
-  }
-
-
-
-
-
-
-
-
-  
-
-  
+ 
 
 
   render() {
@@ -39,8 +23,8 @@ class App extends Component {
       <div className="App">
         <Switch>
           <Route exact path= "/" component={Login} />
-          <Route  exact path="/dashboard" component={Middle} />
-          <Route   path="/pages" component={Page} /> 
+          <Route exact path="/dashboard" component={Middle} />
+          <Route exact path="/pages" component={Page} /> 
         </Switch>
         <Footer />
         
