@@ -1,53 +1,17 @@
 import React from "react";
 import Nav from "./Nav";
 import Header from "./Header";
-var axios = require("axios");
 
 
 class Middle extends React.Component{
 
 
 
-  state={
-    name: "",
-    password: "",
-    projects: []
-
-  }
-
-    
-componentDidMount()
-{
-
-  
-  axios.get("/dashboard")
-  .then(res => {
-    let projArray = [];
-    
-    res.data[0].projects.forEach((p)=>{
-      
-      let proj = {};
-      proj.title = p.title;
-      proj.body = p.body;
-      proj.id = p._id;
-      projArray.push(proj);
-    });
-    
-    
-
-    this.setState(
-        {name: res.data[0].name, password: res.data[0].password, projects: projArray }
-        );
-
-  })
-  // .then(res =>console.log(JSON.stringify(res.data[0].projects)))
- .catch(err => console.log(err))
-}
-
-
-
     render(){
+
         return(
+
+          
             <section className="main">
             <Nav/>
             <Header/>
@@ -63,7 +27,7 @@ componentDidMount()
                            
                                   <div className="panel panel-default">
                                         <div className="panel-heading">
-                                          <h3 className="panel-title">Latest Work for {this.state.name}</h3>
+                                          <h3 className="panel-title">Latest Work for {this.props.name}</h3>
                                         </div>
                                         <div className="panel-body">
                                           <table className="table table-striped table-hover">
@@ -74,20 +38,24 @@ componentDidMount()
                                                   <th></th>
                                               </tr>
                                               
-                                               {this.state.projects.map(proj =>
-                                                   
-                                                    <tr>
+                                               {this.props.projects &&        this.props.projects.length && 
+                                                 this.props.projects.map(proj=>{
+                                                  
+                                                 return (
+                                                  <tr>
+                                                  <td>{proj.title}</td>
+                                                  <td>{proj.body}</td>
+                                                  <td>
+                                                  
+                                                  <button><a href={"/pages/" + proj.id}>Edit</a></button>
+                                                  </td>
+                                                  </tr>
 
-                                                    <td>{proj.title}</td>
-                                                    <td>{proj.body}</td>
-                                                    <td>
-                                                    
-                                                    <button><a href={"/pages/" + proj.id}>Edit</a></button>
-                                                    </td>
-                                                    
-                                                    </tr>
+                                                 )
+                                               
+                                              
                 
-                                               )} 
+                                            } )} 
                                               
       
                                           </tbody>
@@ -103,8 +71,5 @@ componentDidMount()
         );
     }
 }
-
-
-
 
 export default Middle;
