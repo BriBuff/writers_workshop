@@ -81,8 +81,8 @@ app.get("/pages/:id/:plan", function(req,res){
 
 app.post("/register", function(req, res) {
   User.create(req.body)
-    .then(function(dbUser) {
-      res.json(dbUser);
+    .then(function(theUser) {
+      res.json(theUser);
     })
     .catch(function(err) {
       res.json(err);

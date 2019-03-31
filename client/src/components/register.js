@@ -37,7 +37,7 @@ function Register(props){
                         <label>Create Password</label>
                         <input type="password" className="form-control" placeholder="Password"></input>
                         <br />
-                        <label>Check Password</label>
+                        <label>Confirm Password</label>
                         <input type="password" className="form-control" placeholder="Check Password"></input>
                       </div>
                       <button onClick={() => props.register(this.createName)} type="submit" className="btn btn-default btn-block">Register</button>
