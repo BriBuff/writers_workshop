@@ -79,6 +79,16 @@ app.get("/pages/:id/:plan", function(req,res){
   .catch((err) => {console.log(err)});
 });
 
+app.post("/register", function(req, res) {
+  User.create(req.body)
+    .then(function(dbUser) {
+      res.json(dbUser);
+    })
+    .catch(function(err) {
+      res.json(err);
+    });
+});
+
 app.post("/pages/:id/:plan", function(req,res) {
   var plan = new Plan(req.body);
     plan.getSaveData();
