@@ -5,8 +5,8 @@ import Middle from "./components/Middle";
 import Footer from "./components/Footer";
 import Login from "./components/Login";
 import Page from "./components/Page";
-import Register from "./components/register";
-var axios = require("axios");
+import Register from "./components/Register";
+
 
 
 
@@ -25,9 +25,9 @@ class App extends Component {
       <div className="App">
         <Switch>
           <Route exact path= "/" component={Login} />
-          <Route exact path="/dashboard" render={()=><Middle name={this.state.name} password={this.state.password}  projects={this.state.projects}  />}  />
+          <Route exact path="/dashboard" render={()=><Middle   />}  />
           <Route exact path="/pages" render={()=><Page />} /> 
-          <Route exact path="/register" render={()=><Register />} />
+          <Route exact path="/register" component={Register}  />
         </Switch>
         <Footer />
         
