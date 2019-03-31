@@ -39,7 +39,7 @@ class Register extends Component {
             <div className="row">
                 
                 <div className="col-md-4 col-md-offset-4">
-                  <form id="login" action="index.html" className="well">
+                  <form id="login" method="POST" className="well">
                     <div className="form-group">
                       <label>Create Username</label>
                       <input type="text" name="name" className="form-control" placeholder="Enter Username"></input>
