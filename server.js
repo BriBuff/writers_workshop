@@ -44,7 +44,7 @@ app.get("/login", function(req, res){
   console.log("here login");
   db.User.find({}).populate("projects")
   .then(function(theUser){
-   
+   console.log(theUser);
     res.json(theUser)
   }).catch(function(err){
     res.json(err.message);
