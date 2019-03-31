@@ -5,7 +5,7 @@ import Middle from "./components/Middle";
 import Footer from "./components/Footer";
 import Login from "./components/Login";
 import Page from "./components/Page";
-import Register from "./components/Register";
+import Register from "./components/register";
 
 
 
