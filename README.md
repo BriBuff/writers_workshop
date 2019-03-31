@@ -10,11 +10,17 @@ How one writes is a personal, yet sometimes complicated process. Sometimes this 
 
 ## Stretch Goals:
 
+### Writing:
+
+1. 
+
 ### Plan:
 
 1. To eventually find a way to place a text element into canvas.
 
 ## Challenges:
+
+### Authentication/Login:
 
 ### React-Canvas-Draw:
 

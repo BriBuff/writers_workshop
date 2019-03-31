@@ -12,9 +12,10 @@ var ProjectSchema = new Schema({
     author: {
         type: Schema.Types.ObjectId,
         ref: "User"
+    },
+    plan: {
+        type: String
     }
-    
-
 });
 
 var Project = mongoose.model("Project", ProjectSchema);

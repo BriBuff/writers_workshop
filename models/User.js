@@ -3,9 +3,21 @@ var Schema = mongoose.Schema;
 
 var UserSchema = new Schema({
     name: {
-        type: String
+        type: String,
+        trim: true,
+        required: "Username is Required"
     },
-    password: String,
+    password: { 
+        type: String,
+        trim: true,
+        required: "Password is Required",
+        validate: [
+          function(input) {
+            return input.length >= 6;
+          },
+          "Password should be longer."
+        ]
+    },
     projects :[
         {
             type: Schema.Types.ObjectId,
