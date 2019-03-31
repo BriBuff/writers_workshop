@@ -5,42 +5,60 @@ import Header from "./Header";
 import Write from "./Write";
 import CanvasDraw from "./Plan/src/";
 import classNames from "./Plan/src/index.css";
+var axios = require("axios");
+
 
 class Page extends Component {
+
     state = {
+      id: "",
+      title: "",
+      body: "",
       color: "#ffc600",
       width: 600,
       height: 700,
       brushRadius: 10,
       lazyRadius: 12,
+     
     };
+
     componentDidMount() {
-      // let's change the color randomly every 2 seconds. fun!
+     
       window.setInterval(() => {
         this.setState({
           color: "#000000"
         });
       });
-    }
+      
+      axios.get("/pages/"+this.props.id)
+      .then(page => {
+        console.log("page: " + JSON.stringify(page.data[0]));
+        this.setState(
+          {
+            id: page.data[0]._id,
+            body: page.data[0].body,
+            title: page.data[0].title
+          } );
+    
 
+
+      }).catch(err=> console.log(err));
+
+    };
+     
 
 render() {
     return(
-    
-        
         <section className="main">
         <Nav/>
             <Header/>
             <div className="row">
             <div className="col-md-2">
-                <div className="list-group">
-                <span className="list-group-item active main-color-bg">Dashboard</span>
-                <span className="glyphicon glyphicon-list" aria-hidden="true"></span>  Pages <span className="badge">12</span>
-                </div>
+            
                 </div>
                
             <div className="col-md-5">
-                <Write/>
+                <Write body={this.state.body} id={this.state.id}/>
             
             <div style={{height: "400px"}}></div>
             </div>

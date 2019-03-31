@@ -29,8 +29,8 @@ function Nav (){
               
             </ul>
             <ul className="nav navbar-nav navbar-right">
-                  <li>Welcome, Kate</li>  
-                  <li>Logout</li>
+                   
+                  <li><a href={"/"}>Logout</a></li>
                   
                 </ul>
           </div>

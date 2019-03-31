@@ -5,16 +5,13 @@ import Header from "./Header";
 
 class Middle extends React.Component{
 
-    // state = {
-    //     title: "Kate",
-    //     project: "kate's project",
-    //     body: "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some",
-    //     updated: "March 1, 2019"
-    // }
-    
+
 
     render(){
+
         return(
+
+          
             <section className="main">
             <Nav/>
             <Header/>
@@ -41,20 +38,24 @@ class Middle extends React.Component{
                                                   <th></th>
                                               </tr>
                                               
-                                               {this.props.projects.map(proj =>
-                                                   
-                                                    <tr>
+                                               {this.props.projects &&        this.props.projects.length && 
+                                                 this.props.projects.map(proj=>{
+                                                  
+                                                 return (
+                                                  <tr>
+                                                  <td>{proj.title}</td>
+                                                  <td>{proj.body}</td>
+                                                  <td>
+                                                  
+                                                  <button><a href={"/pages/" + proj.id}>Edit</a></button>
+                                                  </td>
+                                                  </tr>
 
-                                                    <td>{proj.title}</td>
-                                                    <td>{proj.body}</td>
-                                                    <td>
-                                                    
-                                                    <button><a href={"/pages/" + proj.id}>Edit</a></button>
-                                                    </td>
-                                                    
-                                                    </tr>
+                                                 )
+                                               
+                                              
                 
-                                               )} 
+                                            } )} 
                                               
       
                                           </tbody>
@@ -70,8 +71,5 @@ class Middle extends React.Component{
         );
     }
 }
-
-
-
 
 export default Middle;

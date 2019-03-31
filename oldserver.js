@@ -18,7 +18,7 @@ mongoose.connect("mongodb://localhost/writersworkshopdb", { useNewUrlParser: tru
 
 
 // db.User.create(
-//   {name: "sue", password:"sue"})
+//   {name: "Susan Blomer", password:"susan"})
 //   .then(function(dbUser){
 //   console.log("user create" + dbUser)
 // })
@@ -31,7 +31,7 @@ mongoose.connect("mongodb://localhost/writersworkshopdb", { useNewUrlParser: tru
 // body: "rawr!!!!   arg!!!!!!!!! lakdja; enasldknfal;kjeal;kjeflnfal;kn" 
 // }).then(function(dbProject){
 
-//   return db.User.findOneAndUpdate({_id: "5c9f9d4b019e987cacc2da5d"}, { $push: { projects: dbProject._id } }, { new: true })
+//   return db.User.findOneAndUpdate({_id: "5c9e8941dfd8c4944c5cf037"}, { $push: { projects: dbProject._id } }, { new: true })
 // }).then(function(dbUser){
 //   console.log("user here" + dbUser)
   
@@ -40,53 +40,54 @@ mongoose.connect("mongodb://localhost/writersworkshopdb", { useNewUrlParser: tru
 //   console.log(err);
 // });
 
-app.get("/login", function(req, res){
-  console.log("here login");
-  db.User.find({}).populate("projects")
-  .then(function(theUser){
-   
-    res.json(theUser)
+
+app.get("/pages", function(req, res){
+  
+  db.Project.find({
+    
+  })
+  .then(function(theProj){
+    console.log("dash id " + theProj)
+    res.json(theProj)
   }).catch(function(err){
     res.json(err.message);
   })
 });
 
 
+
 app.get("/pages/:id", function(req,res){
-    db.Project.find({
-      _id: parseInt(req.params.id)
-    }).then(user=>console.log("**************the user********" +user))
-    .catch((err) => {console.log(err)});
+  console.log(req.params.id);
+  res.send("Hello");
 });
 
-app.get("/pages/:id/:plan", function(req,res){
-  db.Project.find({
-    _id: parseInt(req.params.id)
-  }).then(user=>console.log("**************the user********" +user) + (plan=>console.log("plan", plan)))
-  .catch((err) => {console.log(err)});
-});
+app.get("/dashboard/:id", function(req, res){
+  console.log("here dashboard id");
+  var par = req.params.id;
+  console.log(par);
 
-app.post("/register", function(req, res) {
-  User.create(req.body)
-    .then(function(theUser) {
+  db.Project.findById(
+    req.params.id, function(err, theUser){
+      console.log(theUser);
       res.json(theUser);
-    })
-    .catch(function(err) {
-      res.json(err);
-    });
+    }
+  );
 });
 
-app.post("/pages/:id/:plan", function(req,res) {
-  var plan = new Plan(req.body);
-    plan.getSaveData();
+app.get("/login", function(req, res){
+  console.log("here login");
+  var par = req.params.id;
+  
 
-  plan.create(plan)
-    .then(function(db) {
-      res.json(db);
-    })
-    .catch(function(err) {
-      res.json(err);
-    });
+  db.User.find({
+    
+  }).populate("projects")
+  .then(function(theUser){
+   
+    res.json(theUser)
+  }).catch(function(err){
+    res.json(err.message);
+  })
 });
 
 // Send every other request to the React app
