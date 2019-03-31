@@ -37,9 +37,9 @@ class Middle extends React.Component{
                                                   <th>Body</th>
                                                   <th></th>
                                               </tr>
-                                              
-                                               {this.props.projects &&        this.props.projects.length && 
-                                                 this.props.projects.map(proj=>{
+                  
+                                                 { this.props.projects[0] && this.props.projects[0].length &&
+                                                   this.props.projects[0].map(proj=>{
                                                   
                                                  return (
                                                   <tr>
@@ -47,14 +47,13 @@ class Middle extends React.Component{
                                                   <td>{proj.body}</td>
                                                   <td>
                                                   
-                                                  <button><a href={"/pages/" + proj.id}>Edit</a></button>
+                                                  <button><a href={"/pages/" + proj._id}>Edit</a></button>
                                                   </td>
                                                   </tr>
 
                                                  )
                                                
                                               
-                
                                             } )} 
                                               
       

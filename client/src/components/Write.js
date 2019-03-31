@@ -9,7 +9,7 @@ return(
     <button style={{marginBottom:"5px"}}><a href={"/pages/" + id}>Save</a></button>
     
   <form method="post">
-    <textarea  style={{ width: 600, height: 700}} value = {body} id="mytextarea"> </textarea>
+    <textarea  style={{ width: 600, height: 700}} value = {body} id="mytextarea"></textarea>
     
     
   </form>

@@ -1,7 +1,8 @@
 import React from "react";
 import Middle from "./Middle";
-import { BrowserRouter as Router, Route } from "react-router-dom";
-var axios = require("axios");
+// import { BrowserRouter as Redirect } from "react-router-dom";
+const axios = require("axios");
+
 
 
 
@@ -14,66 +15,113 @@ class Login extends React.Component{
     projects: [],
     isUser: false
 
-  };
+  }
 
   handlePasswordChange = event =>{
     event.preventDefault();
     this.setState({password: event.target.value});
+    
   }
 
   handleNameChange = event =>{
     event.preventDefault();
     this.setState({name: event.target.value});
+    
   }
+
+  
+
   
   findUser = () =>{
     
+    console.log("state pass: " + this.state.password);
+    console.log("state name: " + this.state.name);
+    console.log("state isUser: " + this.state.isUser);
 
     axios.get("/login").then(res=>{
-
       
-
         const projArray = [];
 
       for(var i = 0; i < res.data.length; i++){
+        // console.log("res pass: " + res.data[i].password);
+        // console.log("res name: " + res.data[i].name);
+        console.log("res : " + JSON.stringify(res.data[i]));
 
-        if(this.state.password !== res.data[i].password || this.state.name !== res.data[i].name  ){
-          continue;
+        if(this.state.password !== res.data[i].password 
+          || this.state.name !== res.data[i].name){
+          console.log("No user" + res.data[i].name);
+          
 
-        } else {
-         
-          projArray.push(res.data[i].projects[0])
-          console.log("this data; " + JSON.stringify(res.data[i].projects[0]) )
+        } else if(this.state.password === res.data[i].password 
+          && this.state.name === res.data[i].name) {
+
+            
+
+          console.log("got in past name and password: " );
+          this.setState({isUser: true});
+
+          console.log("projects before set state: "+ this.state.projects);
+
+          console.log(res.data[i].projects);
+
+          if(res.data[i].projects){
+
+            console.log("push projects into array if projects exist");
+            projArray.push(res.data[i].projects);
+
+            
+            this.setState({projects: projArray});
+          }
+
         }
+
       } 
-          this.setState({projects: projArray, isUser: true});
-          console.log("state projects: " + JSON.stringify(this.state.projects));
+          
+        
+         console.log("projects after state: "+ JSON.stringify(this.state.projects));
+         console.log("isUser after set state: " + this.state.isUser);
+        
+
+          if(this.state.isUser){
+            console.log("we got a user");
+            // this.renderMiddle();
+          } else {
+            console.log("we don't have a user");
+            // this.renderMiddle();
+            
+          }
          
 
     }).catch(err=>console.log(err))
 
   }
 
-  renderMiddle = () => { 
-    return(
-    <Router>
-      
-     {this.state.isUser ? 
-    <Route exact path="/dashboard" render={()=><Middle name={this.state.name} password={this.state.password}  projects={this.state.projects} />} /> :
-     <Route exact path= "/" component={Login} /> }
+  // renderMiddle = () => { 
 
-    </Router>
-    )
-    
-  }
+  //   if(this.state.isUser){
+  //     console.log("render middle");
+  //     return <Middle  />;
+  //   } else {
+  //     console.log("render login");
+  //     return <Login />;
+  //   }
+  // };
 
 
 
   render(){
+    if(this.state.isUser === true){
+      return  <Middle name={this.state.name} projects={this.state.projects}  /> 
+    }
+    // if(this.state.isUser === true){
+    //   return  <Redirect  to="/dashboard" component={Middle}/>    
+    // }
+    // {this.state.isUser ? <Redirect from="/" to="/dashboard"/> : null}
+
     return(
 
       <section id="main">
-        <nav className="navbar navbar-default ">
+        <nav className="navbar navbar-default ">c
       <div className="container">
         <div className="navbar-header">
           <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -96,7 +144,7 @@ class Login extends React.Component{
           <div className="row">
               
               <div className="col-md-4 col-md-offset-4">
-                <form id="login" action="index.html" className="well" onSubmit={(event)=>event.preventDefault()}>
+                <form id="login"  className="well" onSubmit={(event)=>event.preventDefault()}>
                 
                   <div className="form-group">
                     <label>Name</label>
@@ -123,7 +171,9 @@ class Login extends React.Component{
                     <button onClick={this.findUser} type="submit" className="btn btn-default btn-block">Login</button>
 
                     
-                    {this.renderMiddle()}
+                    
+
+
                 </form>
                             
               </div>
