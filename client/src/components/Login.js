@@ -1,6 +1,6 @@
 import React from "react";
 import Middle from "./Middle";
-// import { BrowserRouter as Redirect } from "react-router-dom";
+
 const axios = require("axios");
 
 
@@ -113,10 +113,7 @@ class Login extends React.Component{
     if(this.state.isUser === true){
       return  <Middle name={this.state.name} projects={this.state.projects}  /> 
     }
-    // if(this.state.isUser === true){
-    //   return  <Redirect  to="/dashboard" component={Middle}/>    
-    // }
-    // {this.state.isUser ? <Redirect from="/" to="/dashboard"/> : null}
+   
 
     return(
 
