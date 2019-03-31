@@ -71,6 +71,27 @@ app.get("/pages/:id", function(req,res){
     }).then(user=>console.log("**************the user********" +user))
     .catch((err) => {console.log(err)});
 });
+
+app.get("/pages/:id/:plan", function(req,res){
+  db.Project.find({
+    _id: parseInt(req.params.id)
+  }).then(user=>console.log("**************the user********" +user) + (plan=>console.log("plan", plan)))
+  .catch((err) => {console.log(err)});
+});
+
+app.post("/pages/:id/:plan", function(req,res) {
+  var plan = new Plan(req.body);
+    plan.getSaveData();
+
+  plan.create(plan)
+    .then(function(db) {
+      res.json(db);
+    })
+    .catch(function(err) {
+      res.json(err);
+    });
+});
+
 // Send every other request to the React app
 // Define any API routes before this runs
 app.get("*", (req, res) => {
