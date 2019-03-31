@@ -27,8 +27,8 @@ mongoose.connect("mongodb://localhost/writersworkshopdb", { useNewUrlParser: tru
 // });
 
 // db.Project.create({
-// title: "project from hell",
-// body: "rawr!!!!   arg!!!!!!!!! lakdja; enasldknfal;kjeal;kjeflnfal;kn" 
+// title: "project2",
+// body: "lksien  aeoi ana kela naln en a je lormem" 
 // }).then(function(dbProject){
 
 //   return db.User.findOneAndUpdate({_id: "5c9f9d4b019e987cacc2da5d"}, { $push: { projects: dbProject._id } }, { new: true })

@@ -38,7 +38,7 @@ class Middle extends React.Component{
                                                   <th></th>
                                               </tr>
                                               
-                                               {this.props.projects &&        this.props.projects.length && 
+                                               {this.props.projects && this.props.projects.length && 
                                                  this.props.projects.map(proj=>{
                                                   
                                                  return (
