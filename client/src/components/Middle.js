@@ -1,14 +1,30 @@
 import React from "react";
 import Nav from "./Nav";
 import Header from "./Header";
+import Page from "./Page";
 
 
 class Middle extends React.Component{
 
+  state={
+    isClicked: false,
+    title: "",
+    id: "",
+    body: ""
+   
+  }
+
+  
+
+
+
 
 
     render(){
-
+      if(this.state.isClicked === true){
+      return <Page title={this.state.title} body={this.state.body} id={this.state.id} />
+      }
+      
         return(
 
           
@@ -47,13 +63,14 @@ class Middle extends React.Component{
                                                   <td>{proj.body}</td>
                                                   <td>
                                                   
-                                                  <button><a href={"/pages/" + proj._id}>Edit</a></button>
+                                                  {/* <button><a href={"/pages/" + proj._id}>Edit</a></button> */}
+                                                  <button data-id={proj._id} onClick={()=> this.setState({isClicked: !this.state.isClicked, id: proj._id, title: proj.title, body: proj.body})}>Edit</button>
                                                   </td>
                                                   </tr>
 
                                                  )
                                                
-                                              
+                                                 
                                             } )} 
                                               
       

@@ -5,15 +5,12 @@ import Header from "./Header";
 import Write from "./Write";
 import CanvasDraw from "./Plan/src/";
 import classNames from "./Plan/src/index.css";
-var axios = require("axios");
 
 
 class Page extends Component {
 
     state = {
-      id: "",
-      title: "",
-      body: "",
+      
       color: "#ffc600",
       width: 600,
       height: 700,
@@ -30,19 +27,7 @@ class Page extends Component {
         });
       });
       
-      axios.get("/pages/"+this.props.id)
-      .then(page => {
-        console.log("page: " + JSON.stringify(page.data[0]));
-        this.setState(
-          {
-            id: page.data[0]._id,
-            body: page.data[0].body,
-            title: page.data[0].title
-          } );
-    
-
-
-      }).catch(err=> console.log(err));
+      
 
     };
      
@@ -58,7 +43,7 @@ render() {
                 </div>
                
             <div className="col-md-5">
-                <Write body={this.state.body} id={this.state.id}/>
+                <Write title={this.props.title} body={this.props.body} id={this.props.id}/>
             
             <div style={{height: "400px"}}></div>
             </div>
