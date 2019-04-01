@@ -2,27 +2,35 @@ import React from "react";
 import Nav from "./Nav";
 import Header from "./Header";
 import Page from "./Page";
+import Create from "./Create";
 
 
 class Middle extends React.Component{
 
   state={
-    isClicked: false,
+    isPageClicked: false,
     title: "",
-    id: "",
-    body: ""
+    projectId: "",
+    body: "",
+    isCreateClicked: false,
+    userID: ""
    
   }
 
   
 
-
+  componentDidMount(){
+    this.setState({userID: this.props.userID});
+  }
 
 
 
     render(){
-      if(this.state.isClicked === true){
-      return <Page title={this.state.title} body={this.state.body} id={this.state.id} />
+      if(this.state.isPageClicked === true){
+      return <Page title={this.state.title} body={this.state.body} projectId={this.state.projectId} />
+      }
+      if(this.state.isCreateClicked === true){
+        return <Create userID={this.state.userID}/>
       }
       
         return(
@@ -36,7 +44,7 @@ class Middle extends React.Component{
                 <div className="row">
                     <div className="col-md-3">
                             
-                           <div>image or middle sec</div>
+                    <button onClick={()=>{this.setState({isCreateClicked: !this.state.isCreateClicked})}}>Create New Project</button>
                           
                     </div>
                     <div className="col-md-9">
@@ -63,8 +71,8 @@ class Middle extends React.Component{
                                                   <td>{proj.body}</td>
                                                   <td>
                                                   
-                                                  {/* <button><a href={"/pages/" + proj._id}>Edit</a></button> */}
-                                                  <button data-id={proj._id} onClick={()=> this.setState({isClicked: !this.state.isClicked, id: proj._id, title: proj.title, body: proj.body})}>Edit</button>
+                                                  
+                                                  <button data-id={proj._id} onClick={()=> this.setState({isClicked: !this.state.isClicked, projectId: proj._id, title: proj.title, body: proj.body})}>Edit</button>
                                                   </td>
                                                   </tr>
 

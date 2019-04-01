@@ -19,6 +19,8 @@ class Page extends Component {
      
     };
 
+    
+
     componentDidMount() {
      
       window.setInterval(() => {
@@ -43,7 +45,7 @@ render() {
                 </div>
                
             <div className="col-md-5">
-                <Write title={this.props.title} body={this.props.body} id={this.props.id}/>
+                <Write title={this.props.title} body={this.props.body} projectId={this.props.projectId}/>
             
             <div style={{height: "400px"}}></div>
             </div>

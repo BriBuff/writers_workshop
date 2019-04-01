@@ -18,7 +18,7 @@ mongoose.connect("mongodb://localhost/writersworkshopdb", { useNewUrlParser: tru
 
 
 // db.User.create(
-//   {name: "sue", password:"sue"})
+//   {name: "bob", password:"bob"})
 //   .then(function(dbUser){
 //   console.log("user create" + dbUser)
 // })
@@ -27,11 +27,11 @@ mongoose.connect("mongodb://localhost/writersworkshopdb", { useNewUrlParser: tru
 // });
 
 // db.Project.create({
-// title: "project2",
-// body: "lksien  aeoi ana kela naln en a je lormem" 
+// title: "project 1",
+// body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam"
 // }).then(function(dbProject){
 
-//   return db.User.findOneAndUpdate({_id: "5c9f9d4b019e987cacc2da5d"}, { $push: { projects: dbProject._id } }, { new: true })
+//   return db.User.findOneAndUpdate({_id: "5ca29731fbd98b2124a69baf"}, { $push: { projects: dbProject._id } }, { new: true })
 // }).then(function(dbUser){
 //   console.log("user here" + dbUser)
   
@@ -42,9 +42,10 @@ mongoose.connect("mongodb://localhost/writersworkshopdb", { useNewUrlParser: tru
 
 app.get("/login", function(req, res){
   console.log("here login");
+  
   db.User.find({}).populate("projects")
   .then(function(theUser){
-   console.log(theUser);
+  
     res.json(theUser)
   }).catch(function(err){
     res.json(err.message);
@@ -65,7 +66,20 @@ app.post("/register", function(req, res) {
     });
 });
 
+app.post("/create", function(req, res) {
+  console.log("here 3");
+  
+  console.log(req.body);
+  console.log("here 4");
+  db.Project.create(req.body)
 
+  .then(function(dbProj){
+    console.log(dbProj);
+    return db.User.findOneAndUpdate({_id: dbProj._id}, { $push: { projects: dbProj._id } }, { new: true })
+  })
+  .catch
+  (err=>console.log(err))
+});
 
 // Send every other request to the React app
 // Define any API routes before this runs
