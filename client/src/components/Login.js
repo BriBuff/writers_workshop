@@ -11,7 +11,7 @@ class Login extends React.Component{
   state={
     name: "",
     password: "",
-    
+    userID: "",
     projects: [],
     isUser: false
 
@@ -34,60 +34,45 @@ class Login extends React.Component{
   
   findUser = () =>{
     
-    console.log("state pass: " + this.state.password);
-    console.log("state name: " + this.state.name);
-    console.log("state isUser: " + this.state.isUser);
+   
 
     axios.get("/login").then(res=>{
       
         const projArray = [];
 
       for(var i = 0; i < res.data.length; i++){
-        // console.log("res pass: " + res.data[i].password);
-        // console.log("res name: " + res.data[i].name);
-        console.log("res : " + JSON.stringify(res.data[i]));
+       
 
         if(this.state.password !== res.data[i].password 
           || this.state.name !== res.data[i].name){
-          console.log("No user" + res.data[i].name);
+          
           
 
         } else if(this.state.password === res.data[i].password 
           && this.state.name === res.data[i].name) {
 
             
-
-          console.log("got in past name and password: " );
-          this.setState({isUser: true});
-
-          console.log("projects before set state: "+ this.state.projects);
-
-          console.log(res.data[i].projects);
+            console.log("res userID: " + res.data[i]._id);
+         
+          this.setState({isUser: true, userID: res.data[i]._id});
 
           if(res.data[i].projects){
 
-            console.log("push projects into array if projects exist");
+            
             projArray.push(res.data[i].projects);
 
             
             this.setState({projects: projArray});
           }
-
         }
-
       } 
           
-        
-         console.log("projects after state: "+ JSON.stringify(this.state.projects));
-         console.log("isUser after set state: " + this.state.isUser);
-        
-
           if(this.state.isUser){
-            console.log("we got a user");
             
+            console.log("this is a user");
           } else {
-            console.log("we don't have a user");
             
+            console.log("this is not a user");
             
           }
          
@@ -102,7 +87,7 @@ class Login extends React.Component{
 
   render(){
     if(this.state.isUser === true){
-      return  <Middle name={this.state.name} projects={this.state.projects}  /> 
+      return  <Middle name={this.state.name} userID={this.state.userID} projects={this.state.projects}  /> 
     }
    
 
@@ -157,6 +142,8 @@ class Login extends React.Component{
                       ></input>
                     </div>
                     <button onClick={this.findUser} type="submit" className="btn btn-default btn-block">Login</button>
+
+                    <button  type="submit" className="btn btn-default btn-block"> <a href="/register" >Register Here</a></button>
 
                     
                     

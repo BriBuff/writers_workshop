@@ -5,6 +5,7 @@ import Middle from "./components/Middle";
 import Footer from "./components/Footer";
 import Login from "./components/Login";
 import Page from "./components/Page";
+import Create from "./components/Create";
 import Register from "./components/register";
 
 
@@ -28,6 +29,7 @@ class App extends Component {
           <Route exact path="/dashboard" render={()=><Middle   />}  />
           <Route exact path="/pages" render={()=><Page />} /> 
           <Route exact path="/register" component={Register}  />
+          <Route exact path="/create" component={Create}  />
         </Switch>
         <Footer />
         
