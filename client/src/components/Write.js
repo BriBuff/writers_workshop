@@ -1,15 +1,15 @@
 import React from "react";
 
 
-function Write ({body, id}){
+function Write (props){
   
 return(
     <section className="write">
     <h1>Write</h1>
-    <button style={{marginBottom:"5px"}}><a href={"/pages/" + id}>Save</a></button>
+    <button style={{marginBottom:"5px"}}><a href="/s">Save</a></button>
     
   <form method="post">
-    <textarea  style={{ width: 600, height: 700}} value = {body} id="mytextarea"></textarea>
+    <textarea  style={{ width: 600, height: 700}} value = {props.body} id="mytextarea"></textarea>
     
     
   </form>

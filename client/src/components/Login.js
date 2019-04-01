@@ -84,10 +84,10 @@ class Login extends React.Component{
 
           if(this.state.isUser){
             console.log("we got a user");
-            // this.renderMiddle();
+            
           } else {
             console.log("we don't have a user");
-            // this.renderMiddle();
+            
             
           }
          
@@ -96,16 +96,7 @@ class Login extends React.Component{
 
   }
 
-  // renderMiddle = () => { 
-
-  //   if(this.state.isUser){
-  //     console.log("render middle");
-  //     return <Middle  />;
-  //   } else {
-  //     console.log("render login");
-  //     return <Login />;
-  //   }
-  // };
+ 
 
 
 
