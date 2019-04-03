@@ -26,8 +26,12 @@ class Middle extends React.Component{
 
 
     render(){
+
       if(this.state.isPageClicked === true){
+        console.log(this.state.isPageClicked);
       return <Page title={this.state.title} body={this.state.body} projectId={this.state.projectId} />
+      } else {
+        console.log("else");
       }
       if(this.state.isCreateClicked === true){
         return <Create userID={this.state.userID}/>
@@ -72,14 +76,13 @@ class Middle extends React.Component{
                                                   <td>
                                                   
                                                   
-                                                  <button data-id={proj._id} onClick={()=> this.setState({isClicked: !this.state.isClicked, projectId: proj._id, title: proj.title, body: proj.body})}>Edit</button>
+                                                  <button data-id={proj._id} 
+                                                  onClick={()=> this.setState({isPageClicked: true, projectId: proj._id, title: proj.title, body: proj.body})}>Edit</button>
                                                   </td>
                                                   </tr>
-
                                                  )
-                                               
-                                                 
-                                            } )} 
+      
+                                            } )}
                                               
       
                                           </tbody>
