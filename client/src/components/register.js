@@ -1,25 +1,26 @@
 import React, { Component } from "react";
-// import Login from "./Login";
+import Login from "./Login";
 const axios = require("axios");
 
 
 class Register extends Component {
-  // state={
-  //   readyForLogIn: false
-  // }
+  state={
+    readyForLogIn: false
+  }
 
-    addUser =()=>{
-
-    axios.post("/register")
+    addUser =(event)=>{
+      event.preventDefault();
+      const input = document.querySelectorAll("input");
+    axios.post("/register",{name:input[0].value, password: input[1].value})
     .then(res=> console.log(res))
-    // .then(this.setState({readyForLogIn: !this.state.readyForLogIn}))
+    .then(this.setState({readyForLogIn: !this.state.readyForLogIn}))
     .catch(err=>console.log(err));
   }
     render(){
 
-      // if(this.state.readyForLogIn===true){
-      //   return <Login/>
-      // }
+      if(this.state.readyForLogIn===true){
+        return <Login/>
+      }
    
       return(
 
@@ -48,7 +49,7 @@ class Register extends Component {
                 
                 <div className="col-md-4 col-md-offset-4">
                 <h3>Register Here</h3>
-                  <form id="register" method="POST" className="well" >
+                  <form id="register" method="POST" className="well"onSubmit={(event)=> (this.addUser(event))} >
                   
                     <div className="form-group">
                       <label>Create Username</label>
@@ -61,7 +62,7 @@ class Register extends Component {
                         <label>Confirm Password</label>
                         <input type="password" className="form-control" placeholder="Check Password"></input>
                       </div>
-                      <button onClick={this.addUser} type="submit" className="btn btn-default btn-block">Add User</button>
+                      <button  type="submit" className="btn btn-default btn-block">Add User</button>
                   </form>
                               
                 </div>
