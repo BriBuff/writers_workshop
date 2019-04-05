@@ -4,6 +4,7 @@ const PORT = process.env.PORT || 3001;
 const app = express();
 var mongoose = require("mongoose");
 
+require("dotenv").config();
 
 var db = require("./models");
 // Define middleware here
@@ -14,7 +15,10 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
 
+console.log("mongouri: " +process.env.MONGODB_URI);
+
 mongoose.connect(process.env.MONGODB_URI ||"mongodb://localhost/writersworkshopdb", { useNewUrlParser: true });
+
 
 
 // db.User.create(
