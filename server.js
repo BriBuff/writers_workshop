@@ -20,6 +20,7 @@ console.log("mongouri: " +process.env.MONGODB_URI);
 mongoose.connect(process.env.MONGODB_URI ||"mongodb://localhost/writersworkshopdb", { useNewUrlParser: true });
 
 
+
 // db.User.create(
 //   {name: "jess", password:"jess"})
 //   .then(function(dbUser){
