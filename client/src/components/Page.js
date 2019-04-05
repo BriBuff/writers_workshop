@@ -1,9 +1,7 @@
 import React, { Component } from "react";
-// import { render } from "react-dom";
 import Nav from "./Nav";
 import Header from "./Header";
 import Write from "./Write";
-// import Footer from "./Footer";
 import CanvasDraw from "./Plan/src/";
 import classNames from "./Plan/src/index.css";
 
@@ -130,8 +128,6 @@ render() {
 
 
 
-{/* <div style={{height: 1000}}></div>
-<Footer/> */}
 
         </section>
     );

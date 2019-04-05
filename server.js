@@ -20,33 +20,7 @@ console.log("mongouri: " +process.env.MONGODB_URI);
 mongoose.connect(process.env.MONGODB_URI ||"mongodb://localhost/writersworkshopdb", { useNewUrlParser: true });
 
 
-
 // db.User.create(
-//   {name: "jess", password:"jess"})
-//   .then(function(dbUser){
-//   console.log("user create" + dbUser)
-// })
-// .catch(function(err){
-//   console.log(err.message);
-// });
-
-
-
-//  const id = "5ca40bb250ceb20ae4a14abb";
-// db.Project.create({
-// title: "project 2",
-// body: "ksien lsni sm et dolore magna aliqua. Ut enim ad minim veniam"
-// }).then(function(dbProject){
-
-//   return db.User.findOneAndUpdate({_id: id}, { $push: { projects: dbProject._id } }, { new: true })
-// }).then(function(dbUser){
-//   console.log("user here" + dbUser)
-  
-// })
-// .catch(function(err){
-//   console.log(err);
-// });
-
 app.get("/login", function(req, res){
   
   

@@ -117,7 +117,7 @@ class Middle extends React.Component{
                     </div>
                 </div>
             </div>
-            {/* <div style={{height: "400px"}}></div> */}
+            
             <Footer/>
         </section>
         );
