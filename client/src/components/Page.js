@@ -3,8 +3,10 @@ import React, { Component } from "react";
 import Nav from "./Nav";
 import Header from "./Header";
 import Write from "./Write";
+// import Footer from "./Footer";
 import CanvasDraw from "./Plan/src/";
 import classNames from "./Plan/src/index.css";
+
 
 
 class Page extends Component {
@@ -125,8 +127,11 @@ render() {
       </div>
       </div>
       </div>
-    
 
+
+
+{/* <div style={{height: 1000}}></div>
+<Footer/> */}
 
         </section>
     );

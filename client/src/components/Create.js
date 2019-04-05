@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./Login.css";
 import Nav from "./Nav";
 import Header from "./Header";
+import Footer from "./Footer";
 
 const axios = require("axios");
 
@@ -58,13 +59,13 @@ class Create extends Component{
                         className="form-control"
                         ></input>
                       </div>
-                      <div className="textarea form-group">
+                      <div className="form-group">
                           <label>Body of Project</label>
-                          <input id="textarea"
+                          <input
                           style={{height: 300}}
                           type="text" 
                           name="body"
-                          className="textarea form-control"  
+                          className="form-control"  
                           placeholder=""
                           ></input>
                         </div>
@@ -77,7 +78,7 @@ class Create extends Component{
                   </div>
               </div>
           </div>
-          <div style={{height: "200px"}}></div>
+          <Footer/>
       </section>
       
       );

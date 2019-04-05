@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./Login.css"
 import Login from "./Login";
+import Footer from "./Footer";
 const axios = require("axios");
 
 
@@ -80,7 +81,8 @@ class Register extends Component {
                 </div>
             </div>
         </div>
-        <div style={{height: "200px"}}></div>
+        {/* <div style={{height: "200px"}}></div> */}
+        <Footer />
     </section>
     
     );
