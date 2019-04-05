@@ -14,7 +14,7 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
 
-mongoose.connect("mongodb://localhost/writersworkshopdb", { useNewUrlParser: true });
+mongoose.connect(process.env.MONGODB_URI ||"mongodb://localhost/writersworkshopdb", { useNewUrlParser: true });
 
 
 // db.User.create(
@@ -44,7 +44,7 @@ mongoose.connect("mongodb://localhost/writersworkshopdb", { useNewUrlParser: tru
 // });
 
 app.get("/login", function(req, res){
-  console.log("here login");
+  
   
   db.User.find({}).populate("projects")
   .then(function(theUser){
@@ -83,6 +83,28 @@ app.post("/create/:id", function(req, res) {
   })
   .catch
   (err=>console.log(err))
+});
+
+app.post("/update/:id", function(req,res){
+  console.log(req.params.id);
+  console.log("here update");
+  db.Project.updateOne({_id: req.params.id}, {title: req.body.title, body: req.body.body})
+  .then(function(proj){
+    console.log(proj);
+    res.json(proj);
+  }).catch(err=>console.log(err))
+});
+
+app.delete("/delete/:id", function(req,res){
+  const id = req.params.id;
+  
+  db.Project.deleteOne({_id: id})
+  .then(function(proj){
+
+    console.log(proj);
+    res.json(proj);
+  })
+  .catch(err=>console.log(err))
 });
 
 // Send every other request to the React app
