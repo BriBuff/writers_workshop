@@ -5,18 +5,31 @@ const axios = require("axios");
 
 class Register extends Component {
   state={
-    readyForLogIn: false
+    readyForLogIn: false,
+    name: "",
+    password: ""
+  }
+
+  name = (event) => {
+    this.setState({ name: event.target.value})
+    console.log(event.target.value);
+  }
+
+  password = (event) => {
+    this.setState({ password: event.target.value})
+    console.log(event.target.value);
   }
 
     addUser =(event)=>{
       event.preventDefault();
       const input = document.querySelectorAll("input");
     axios.post("/register",{name:input[0].value, password: input[1].value})
-    .then(res=> console.log(res))
+    // .then(res=> console.log(res))
     .then(this.setState({readyForLogIn: !this.state.readyForLogIn}))
     .catch(err=>console.log(err));
   }
     render(){
+      const enabled = this.state.name.length > 3 && this.state.password.length > 3;
 
       if(this.state.readyForLogIn===true){
         return <Login/>
@@ -53,16 +66,14 @@ class Register extends Component {
                   
                     <div className="form-group">
                       <label>Create Username</label>
-                      <input type="text" name="name" className="form-control" placeholder="Enter Username"></input>
+                      <input type="text" name="name" className="form-control" placeholder="Enter Username" onChange={(event) => this.name(event)}></input>
                     </div>
                     <div className="form-group">
                         <label>Create Password</label>
-                        <input type="password" name="password" className="form-control" placeholder="Password"></input>
+                        <input type="password" name="password" className="form-control" placeholder="Password" onChange={(event) => this.password(event)}></input>
                         <br />
-                        <label>Confirm Password</label>
-                        <input type="password" className="form-control" placeholder="Check Password"></input>
                       </div>
-                      <button  type="submit" className="btn btn-default btn-block">Add User</button>
+                      <button  disabled={!enabled} type="submit" className="btn btn-default btn-block">Add User</button>
                   </form>
                               
                 </div>

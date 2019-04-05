@@ -12,20 +12,33 @@ How one writes is a personal, yet sometimes complicated process. Sometimes this 
 
 ### Writing:
 
-1. 
+1. Possible dark mode.
 
 ### Plan:
 
 1. To eventually find a way to place a text element into canvas.
 
+2. To add multiple different color options to the canvas.
+
 ## Challenges:
 
-### Authentication/Login:
+### Login/Register/Routes:
+
+1. Learning React routes.
+
+2. Making the routes secure once logged in.
+
+3. Making sure the register page would route to the login page after meeting the register requirements.
 
 ### React-Canvas-Draw:
 
 1. Integrating the canvas onto the page with Tiny.
+
 2. Attempted to make a draggable text box for the canvas. There wasn't support for that functionality and ultimately had to be scrapped.
+
+### Write:
+
+1. Getting Tiny to let us write in their text box once connected via route and database.
 
 ## Responsibilities:
 
