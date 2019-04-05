@@ -1,12 +1,16 @@
 import React, { Component } from "react";
 
 
+
 class Write extends Component{
   state={
     title: "",
     body: "",
     projectId: ""
 
+  // }
+  // handleEditorChange = (e) => {
+  //   console.log('Content was updated:', e.target.getContent());
   }
   componentDidMount(){
     this.setState({title: this.props.title, body: this.props.body, projectId: this.props.projectId});
@@ -35,7 +39,7 @@ class Write extends Component{
       <h1>Write</h1>
       
       
-  
+      
     <form action="/pages/" method="POST">
 
     <button 
@@ -43,7 +47,7 @@ class Write extends Component{
     onClick={this.state.saveFunction} 
     projectId={this.state.projectId}
     style={{marginBottom:"5px"}}>SAVE</button>
-
+ 
       <div id="form-group">
         <label style={{width:600}}>Title: </label>
         <input 
@@ -55,15 +59,16 @@ class Write extends Component{
         </input>
       
       </div>
+
+
       <div id="form-group">
         <label>Body: </label>
         <textarea 
-        className="form-control" 
+        className="textarea form-control" 
         name="body" 
         style={{ width: 600, height: 300}} 
         value = {this.state.body} 
         onchange={this.handleBodyChange}></textarea>
-      
       </div>
       
       

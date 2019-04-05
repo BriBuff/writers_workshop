@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-// import Login from "./Login";
+import "./Login.css"
 const axios = require("axios");
 
 
@@ -27,13 +27,13 @@ class Register extends Component {
           <nav className="navbar navbar-default ">
         <div className="container">
           <div className="navbar-header">
-            <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            {/* <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
               <span className="sr-only">Toggle navigation</span>
               <span className="icon-bar"></span>
               <span className="icon-bar"></span>
               <span className="icon-bar"></span>
-            </button>
-           <div className ="active"  aria-hidden="true">Writer's Workshop</div> 
+            </button> */}
+           <div className ="heading"  aria-hidden="true">Writer's Workshop</div> 
           </div>
           <div id="navbar" className="collapse navbar-collapse">
             <ul className="nav navbar-nav">

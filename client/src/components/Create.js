@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import "./Login.css";
 const axios = require("axios");
 
 
@@ -37,7 +38,7 @@ class Create extends Component{
                 <span className="icon-bar"></span>
                 <span className="icon-bar"></span>
               </button>
-             <div className ="active"  aria-hidden="true">Writer's Workshop</div> 
+             <div className ="heading"  aria-hidden="true">Writer's Workshop</div> 
             </div>
             
           </div>
@@ -57,22 +58,20 @@ class Create extends Component{
                         name="title" 
                         className="form-control" 
                         placeholder="Title of Project"
-                        
-                        
                         ></input>
                       </div>
-                      <div className="form-group">
+                      <div className="textarea form-group">
                           <label>Body of Project</label>
-                          <input 
+                          <input id="textarea"
                           style={{height: 300}}
                           type="text" 
                           name="body"
-                          className="form-control"  
+                          className="textarea form-control"  
                           placeholder=""
                         
                           ></input>
                         </div>
-                        <button onClick={this.saveProject} type="submit" className="btn btn-secondary btn-block">Create Project</button>
+                        <button onClick={this.saveProject} type="submit" className="btn btn-default">Create Project</button>
     
                         
                         
