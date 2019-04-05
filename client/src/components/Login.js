@@ -1,5 +1,6 @@
 import React from "react";
 import Middle from "./Middle";
+import Footer from "./Footer";
 import "./Login.css";
 
 const axios = require("axios");
@@ -147,6 +148,7 @@ class Login extends React.Component{
           </div>
       </div>
       <div style={{height: "200px"}}></div>
+      <Footer />
   </section>
   
   );

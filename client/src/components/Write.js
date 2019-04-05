@@ -62,7 +62,7 @@ class Write extends Component{
                       <div className="form-group">
                           <label>Body of Project</label>
                           <input 
-                          style={{height: 300}}
+                          style={{height: 700}}
                           type="text" 
                           name="body"
                           className="form-control"  
