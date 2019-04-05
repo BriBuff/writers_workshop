@@ -2,12 +2,16 @@ import React, { Component } from "react";
 const axios = require("axios");
 
 
+
 class Write extends Component{
   state={
     title: "",
     body: "",
     projectId: ""
 
+  // }
+  // handleEditorChange = (e) => {
+  //   console.log('Content was updated:', e.target.getContent());
   }
   componentDidMount(){
     this.setState({title: this.props.title, body: this.props.body, projectId: this.props.projectId});
@@ -75,8 +79,37 @@ class Write extends Component{
     
                     </form>
       
-  
-    
+      
+    <form action="/pages/" method="POST">
+    <button 
+    type="submit"
+    onClick={this.state.saveFunction} 
+    projectId={this.state.projectId}
+    style={{marginBottom:"5px"}}>SAVE</button>
+ 
+      <div id="form-group">
+        <label style={{width:600}}>Title: </label>
+        <input 
+        className="form-control"
+        name="title" 
+        type="text" 
+        value={this.state.title}
+        onchange={this.handleTitleChange}>
+        </input>
+      </div>
+
+
+      <div id="form-group">
+        <label>Body: </label>
+        <textarea 
+        className="textarea form-control" 
+        name="body" 
+        style={{ width: 600, height: 300}} 
+        value = {this.state.body} 
+        onchange={this.handleBodyChange}></textarea>
+      </div>
+      
+    </form>
     </section>
   );
   }

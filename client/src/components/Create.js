@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+import "./Login.css";
 import Nav from "./Nav";
 import Header from "./Header";
 
@@ -40,7 +40,6 @@ class Create extends Component{
         return(
     
           <section id="main">
-   
             <Nav/>
             <Header/>
           <div className="container">
@@ -59,12 +58,19 @@ class Create extends Component{
                         className="form-control"
                         ></input>
                       </div>
-                      <div className="form-group">
+                      <div className="textarea form-group">
                           <label>Body of Project</label>
-                          <input 
+                          <input id="textarea"
                           style={{height: 300}}
                           type="text" 
                           name="body"
+                          className="textarea form-control"  
+                          placeholder=""
+                          ></input>
+                        </div>
+                        <button onClick={this.saveProject} type="submit" className="btn btn-default">Create Project</button>
+    
+                        
                           className="form-control"  
                           
                         
