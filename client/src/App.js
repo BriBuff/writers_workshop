@@ -11,12 +11,16 @@ import Register from "./components/register";
 
 
 
+
 class App extends Component {
 
   render() {
     return (
+
+      
       
       <Router>
+        
       <div className="App">
         <Switch>
           <Route exact path= "/" component={Login} />
@@ -24,9 +28,11 @@ class App extends Component {
           <Route exact path="/pages"component={Page } /> 
           <Route exact path="/register" component={Register}  />
           <Route exact path="/create" component={Create}  />
-        </Switch>
-        <Footer /> 
-        
+
+        </Switch> 
+      </div>
+      <div>
+      <Footer />
       </div>
       </Router>
     );

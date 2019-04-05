@@ -2,12 +2,14 @@ import React, { Component } from "react";
 const axios = require("axios");
 
 
+
 class Write extends Component{
   state={
     title: "",
     body: "",
     projectId: ""
 
+  
   }
   componentDidMount(){
     this.setState({title: this.props.title, body: this.props.body, projectId: this.props.projectId});
@@ -75,7 +77,6 @@ class Write extends Component{
     
                     </form>
       
-  
     
     </section>
   );

@@ -19,18 +19,11 @@
 
 
     <script src='https://cloud.tinymce.com/5/tinymce.min.js?apiKey=2bti92sgcgptanv8loo7uguo5fb5sohdujfzawb8lqmqkkkg'></script>
-    <script>
+    <script type="text/javascript">
     tinymce.init({
-      selector: '#mytextarea',
-      plugins: "save",
-      toolbar: "undo redo | bold italic | alignleft aligncenter alignright | save",
-      save_onsavecallback: function () { console.log('Saved'); },
-      file_picker_callback: function(callback, value, meta) {
-    // Provide file and text for the link dialog
-    if (meta.filetype == 'file') {
-      callback('mypage.html', {text: 'My text'});
-    }
-    }
+      selector: ".textarea",
+      inline: true,
+      toolbar: "undo redo | bold italic | alignleft aligncenter alignright",
     });
     </script>
 

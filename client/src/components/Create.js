@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import "./Login.css";
 import Nav from "./Nav";
 import Header from "./Header";
 const axios = require("axios");
@@ -38,7 +39,6 @@ class Create extends Component{
         return(
     
           <section id="main">
-   
             <Nav/>
             <Header/>
           <div className="container">
@@ -57,15 +57,14 @@ class Create extends Component{
                         className="form-control"
                         ></input>
                       </div>
-                      <div className="form-group">
+                      <div className="textarea form-group">
                           <label>Body of Project</label>
-                          <input 
+                          <input id="textarea"
                           style={{height: 300}}
                           type="text" 
                           name="body"
-                          className="form-control"  
-                          
-                        
+                          className="textarea form-control"  
+                          placeholder=""
                           ></input>
                         </div>
                         <button  type="submit" className="btn btn-secondary btn-block">Create Project</button>

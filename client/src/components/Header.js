@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
 function Header (props) {
     return(
@@ -12,7 +12,7 @@ function Header (props) {
             </div>
             <div className="col-md-2">
                     
-                    <div className="dropdown create">
+                    {/* <div className="dropdown create">
                       <button className="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
                         Create Content
                         <span className="caret"></span>
@@ -22,7 +22,7 @@ function Header (props) {
                          <li><Link to="/pages">Add Page</Link></li>
                         <li><Link to="/pages">Add Plan</Link></li> 
                       </ul>
-                    </div>
+                    </div> */}
             </div>
         </div>
     </div>
