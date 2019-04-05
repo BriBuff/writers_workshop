@@ -1,4 +1,8 @@
 import React, { Component } from "react";
+
+import Nav from "./Nav";
+import Header from "./Header";
+
 const axios = require("axios");
 
 
@@ -7,7 +11,8 @@ class Create extends Component{
     state={
         title: "",
         body: "",
-        userID: ""
+        userID: "",
+       
         
     }
     componentDidMount(){
@@ -24,30 +29,20 @@ class Create extends Component{
       const input1 = input[0].value;
       const input2 = input[1].value;
       
-        axios.post("/create/"+ this.state.userID,{title: input1, body: input2}).then(res=> console.log(res)).catch(err=>console.log(err));
+        axios.post("/create/"+ this.state.userID,{title: input1, body: input2}).then(res=> 
+       console.log(res)).catch(err=>console.log(err));
       }
 
     render(){
         
-        
+     
     
         return(
     
           <section id="main">
-            <nav style={{marginBottom: 25,paddingBotton: 5}} className="navbar navbar-default ">c
-          <div className="container">
-            <div className="navbar-header">
-              <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                <span className="sr-only">Toggle navigation</span>
-                <span className="icon-bar"></span>
-                <span className="icon-bar"></span>
-                <span className="icon-bar"></span>
-              </button>
-             <div className ="active"  aria-hidden="true">Writer's Workshop</div> 
-            </div>
-            
-          </div>
-        </nav>
+   
+            <Nav/>
+            <Header/>
           <div className="container">
         
               <div className="row">
@@ -76,6 +71,7 @@ class Create extends Component{
                           ></input>
                         </div>
                         <button  type="submit" className="btn btn-secondary btn-block">Create Project</button>
+                        
     
     
                     </form>

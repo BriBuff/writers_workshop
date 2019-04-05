@@ -50,30 +50,20 @@ class Login extends React.Component{
 
         } else if(this.state.password === res.data[i].password 
           && this.state.name === res.data[i].name) {
-
-            
-            console.log("res userID: " + res.data[i]._id);
-         
           this.setState({isUser: true, userID: res.data[i]._id});
 
           if(res.data[i].projects){
 
-            
             projArray.push(res.data[i].projects);
-
-            
             this.setState({projects: projArray});
           }
         }
       } 
           
           if(this.state.isUser){
-            
             console.log("this is a user");
           } else {
-            
             console.log("this is not a user");
-            
           }
          
 
@@ -86,8 +76,9 @@ class Login extends React.Component{
 
 
   render(){
+    
     if(this.state.isUser === true){
-      return  <Middle name={this.state.name} userID={this.state.userID} projects={this.state.projects}  /> 
+      return  <Middle projects={this.state.projects}  name={this.state.name} userID={this.state.userID}  /> 
     }
    
 
