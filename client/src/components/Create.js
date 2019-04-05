@@ -68,14 +68,6 @@ class Create extends Component{
                           placeholder=""
                           ></input>
                         </div>
-                        <button onClick={this.saveProject} type="submit" className="btn btn-default">Create Project</button>
-    
-                        
-                          className="form-control"  
-                          
-                        
-                          ></input>
-                        </div>
                         <button  type="submit" className="btn btn-secondary btn-block">Create Project</button>
                         
     
