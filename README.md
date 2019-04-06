@@ -4,9 +4,9 @@
 
 How one writes is a personal, yet sometimes complicated process. Sometimes this means writing on scraps of paper, keeping a journal close by, making storyboards, or just plain writing with no plan whatsoever. Either way, trying to keep track of ideas or skipping ahead is a common issue. This app is meant to help with that. Writers will be able to plan and write at the same time- keeping the writing portion to one side of the screen and the plan to the other. Writers will be able to add, change, delete, and/or update their plan and writing from wherever they are without having to worry about losing ideas once they create a profile.
 
-### App Link:
+### App Link: https://immense-beyond-32063.herokuapp.com/
 
-### Demo Video Link:
+### Demo Video Link: https://drive.google.com/file/d/1zuTWTVnJ-Ix_F_YGUYS-TIoe5ABDvnkg/view
 
 ## Stretch Goals:
 
