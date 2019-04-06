@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 import "./Login.css";
 import Nav from "./Nav";
-import Header from "./Header";
-// import Footer from "./Footer";
 import Middle from "./Middle";
 const axios = require("axios");
 
@@ -45,7 +43,7 @@ class Create extends Component{
     
           <section id="main">
             <Nav/>
-            <Header/>
+           
           <div className="container">
         
               <div className="row">
@@ -85,7 +83,6 @@ class Create extends Component{
                   </div>
               </div>
           </div>
-          {/* <Footer/> */}
       </section>
       
       );
