@@ -10,15 +10,13 @@ How one writes is a personal, yet sometimes complicated process. Sometimes this 
 
 ## Stretch Goals:
 
-### Writing:
+### Writing/Plan:
 
 1. Possible dark mode.
 
-### Plan:
+2. To eventually find a way to place a text element into canvas.
 
-1. To eventually find a way to place a text element into canvas.
-
-2. To add multiple different color options to the canvas.
+3. To add multiple different color options to the canvas.
 
 ## Challenges:
 
@@ -54,6 +52,6 @@ Package Used: React-Canvas-Draw
 API Used: Tiny 
 
 ## Developers
-Bri Buffington
-Andrea Erikson
-Jessica Katelyn Blomer
+1. Bri Buffington
+2. Andrea Erikson
+3. Jessica Katelyn Blomer
