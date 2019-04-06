@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./App.css";
 import Middle from "./components/Middle";
-import Footer from "./components/Footer";
+// import Footer from "./components/Footer";
 import Login from "./components/Login";
 import Page from "./components/Page";
 import Create from "./components/Create";
@@ -32,7 +32,7 @@ class App extends Component {
         </Switch> 
       </div>
       <div>
-      <Footer />
+      {/* <Footer /> */}
       </div>
       </Router>
     );
