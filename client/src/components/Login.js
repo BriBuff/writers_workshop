@@ -90,6 +90,7 @@ class Login extends React.Component{
         <nav className="navbar navbar-default ">
       <div className="container">
         <div className="navbar-header">
+
          <div className ="heading"  aria-hidden="true">Writer's Workshop</div> 
         </div>
         <div id="navbar" className="collapse navbar-collapse">

@@ -15,31 +15,44 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
 
-console.log("mongouri: " +process.env.MONGODB_URI);
+
+
 
 mongoose.connect(process.env.MONGODB_URI ||"mongodb://localhost/writersworkshopdb", { useNewUrlParser: true });
 
 
-// db.User.create(
-app.get("/login", function(req, res){
+
+app.get("/login/:id", function(req, res){
   
-  
-  db.User.find({}).populate("projects")
-  .then(function(theUser){
-  
+  db.User.find({_id:req.params.id}).populate("projects")
+  .then(function(theUser){  
     res.json(theUser)
   }).catch(function(err){
     res.json(err.message);
   })
 });
 
+app.get("/user/:id", function(req, res){
+  
+  db.User.find({_id:req.params.id}).populate("projects")
+  .then(function(theUser){
+    console.log("theUser" + theUser)
+    res.json(theUser)
+  }).catch(function(err){
+    res.json(err.message);
+  })
+});
+
+
+
+
+
 app.post("/register", function(req, res) {
-  console.log("here");
-  console.log(req.body);
+  
   db.User.create(req.body)
     
     .then(function(theUser) {
-      console.log(theUser);
+      
       res.json(theUser);
     })
     .catch(function(err) {
@@ -47,28 +60,28 @@ app.post("/register", function(req, res) {
     });
 });
 
+
+
 app.post("/create/:id", function(req, res) {
   
   const id = req.params.id;
-  console.log(id);
-  console.log(req);
-  console.log("here 4");
+  
   db.Project.create(req.body)
 
   .then(function(dbProj){
-    console.log(dbProj);
-    return db.User.update({_id: id}, { $push: { projects: dbProj._id } }, { new: true })
+    res.json(dbProj);
+    return db.User.update({_id: id}, { $push: { projects: dbProj._id } }, { new: true });
+    
   })
   .catch
   (err=>console.log(err))
 });
 
 app.post("/update/:id", function(req,res){
-  console.log(req.params.id);
-  console.log("here update");
+ 
   db.Project.updateOne({_id: req.params.id}, {title: req.body.title, body: req.body.body})
   .then(function(proj){
-    console.log(proj);
+    
     res.json(proj);
   }).catch(err=>console.log(err))
 });
@@ -79,10 +92,22 @@ app.delete("/delete/:id", function(req,res){
   db.Project.deleteOne({_id: id})
   .then(function(proj){
 
-    console.log(proj);
+    
     res.json(proj);
   })
   .catch(err=>console.log(err))
+});
+
+
+app.get("/login", function(req, res){
+  
+  db.User.find({}).populate("projects")
+  .then(function(theUser){
+  
+    res.json(theUser)
+  }).catch(function(err){
+    res.json(err.message);
+  })
 });
 
 // Send every other request to the React app

@@ -15,27 +15,27 @@ class Middle extends React.Component{
     projectId: "",
     body: "",
     isCreateClicked: false,
-    userID: "",
+    userID: this.props.userID,
     projects: [],
     name: "",
     
    
   }
 
-  componentWillMount(){
-    console.log(this.props);
-    this.setUser();
+  componentDidMount(){
+    
+    this.loadUsers();
   }
 
-  setUser= ()=>{
-    
-    const newArr = [];
-    newArr.push(this.props.projects);
-    
-    this.setState({userID: this.props.userID, name: this.props.name, projects: newArr});
+  
+
+  loadUsers = () => {
+    axios.get("/login/"+this.props.userID)
+
+    .then(res => this.setState({projects: res.data[0].projects})
+    )
+    .catch(err => console.log(err));
   }
-
-
 
   deleteProject = (id) =>{
     console.log(id);
@@ -47,7 +47,7 @@ class Middle extends React.Component{
 
     render(){
       
-      
+      console.log("down here: " + JSON.stringify(this.state.projects));
       if(this.state.isPageClicked === true){
         
       return <Page title={this.state.title} body={this.state.body} projectId={this.state.projectId} />
@@ -67,10 +67,11 @@ class Middle extends React.Component{
                 
                 <div className="row">
                     <div className="col-md-3">
-                            
-                    <button onClick={()=>{this.setState({isCreateClicked: !this.state.isCreateClicked})}}>Create New Project</button>
+                    
+                    <button style={{marginRight: 10}} onClick={()=>{this.setState({isCreateClicked: !this.state.isCreateClicked})}}>Create New Project</button><a href="/">Back Home</a>
                           
                     </div>
+                    
                     <div className="col-md-9">
                            
                                   <div className="panel panel-default">
@@ -86,8 +87,29 @@ class Middle extends React.Component{
                                                   <th></th>
                                               </tr>
                                                   
-                                                 { this.props.projects[0] && this.props.projects[0].length &&
+                                                 {/* { this.props.projects[0] && this.props.projects[0].length &&
                                                    this.props.projects[0].map(proj=>{
+                                                     
+                                                  
+                                                 return (
+                                                  <tr>
+                                                  <td>{proj.title}</td>
+                                                  <td>{proj.body}</td>
+                                                  <td>
+                                                  
+                                                  
+                                                  <button data-id={proj._id} 
+                                                  onClick={()=> this.setState({isPageClicked: true, projectId: proj._id, title: proj.title, body: proj.body})}>Edit</button>
+
+                                                  <button onClick={()=>this.deleteProject(proj._id)} style={{marginTop: 5}}data-id={proj._id} 
+                                                  >Delete</button>
+                                                  </td>
+                                                  </tr>
+                                                 )
+      
+                                            } )} */}
+                                             { this.state.projects && this.state.projects.length &&
+                                                   this.state.projects.map(proj=>{
                                                      
                                                   
                                                  return (

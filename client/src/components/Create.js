@@ -3,6 +3,7 @@ import "./Login.css";
 import Nav from "./Nav";
 import Header from "./Header";
 import Footer from "./Footer";
+import Middle from "./Middle";
 const axios = require("axios");
 
 
@@ -12,6 +13,7 @@ class Create extends Component{
         title: "",
         body: "",
         userID: "",
+        userDone: false
        
         
     }
@@ -30,12 +32,14 @@ class Create extends Component{
       const input2 = input[1].value;
       
         axios.post("/create/"+ this.state.userID,{title: input1, body: input2}).then(res=> 
-       console.log(res)).catch(err=>console.log(err));
+       this.setState({userDone: true})).catch(err=>console.log(err));
       }
 
     render(){
         
-     
+     if(this.state.userDone === true){
+       return <Middle userID={this.state.userID}/>
+     }
     
         return(
     
@@ -46,6 +50,7 @@ class Create extends Component{
         
               <div className="row">
                   
+
                   <div className="col-md-8">
                   <form id="create" method="POST" className="well" onSubmit={(event)=> (this.saveProject(event))}>
                     
@@ -60,6 +65,7 @@ class Create extends Component{
                       </div>
                       <div className="form-group">
                           <label>Body of Project</label>
+
                           <textarea
                           id="tinytextarea"
                           type="text" 
