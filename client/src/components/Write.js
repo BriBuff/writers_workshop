@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-import Page from "./Page";
+
 const axios = require("axios");
 
 
@@ -34,8 +34,7 @@ class Write extends Component{
       
     event.preventDefault();
     const input = document.querySelectorAll("input, textarea");
-    console.log(event.target.childNodes);
-    console.log(input[0].value);
+    
     const input1 = input[0].value;
     const input2 = input[1].value;
     
