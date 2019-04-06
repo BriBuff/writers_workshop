@@ -41,7 +41,7 @@ class Middle extends React.Component{
     console.log(id);
     const input = document.querySelectorAll("input");
     console.log(input);
-      axios.delete("/delete/" + id).then(res=> console.log(res)).catch(err=>console.log(err));
+      axios.delete("/delete/" + id).then(res=> this.loadUsers()).catch(err=>console.log(err));
 
   }
 
