@@ -37,7 +37,7 @@ render() {
     return(
         <section className="main">
         <Nav/>
-            {/* <Header/> */}
+            
             <div className="row">
             <div className="col-md-2">
             

@@ -3,7 +3,7 @@ import Nav from "./Nav";
 import Header from "./Header";
 import Page from "./Page";
 import Create from "./Create";
-import Footer from "./Footer";
+
 const axios = require("axios");
 
 
@@ -120,7 +120,7 @@ class Middle extends React.Component{
                 </div>
             </div>
             
-            {/* <Footer/> */}
+            
         </section>
         );
     }

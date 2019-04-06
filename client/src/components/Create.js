@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "./Login.css";
 import Nav from "./Nav";
 import Header from "./Header";
-import Footer from "./Footer";
+// import Footer from "./Footer";
 import Middle from "./Middle";
 const axios = require("axios");
 
