@@ -18,19 +18,7 @@ function Nav (){
             </Link>
           </div>
           <div id="navbar" className="collapse navbar-collapse">
-            <ul className="nav navbar-nav">
-            <li>
-              <Link to ="/dashboard" className={window.location.pathname === "/dashboard" ?"active" : "nav-link"}>Dashboard
-              </Link>  
-            </li>
-              <li>
-                <Link to ="/pages" className={window.location.pathname === "/pages" ?"active" : "nav-link"}>Pages
-                </Link>
-                </li>
-              
-            </ul>
             <ul className="nav navbar-nav navbar-right">
-                   
                   <li><a href="/" className="active nav-link">Logout</a></li>
                   
                 </ul>

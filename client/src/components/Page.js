@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import Nav from "./Nav";
-import Header from "./Header";
 import Write from "./Write";
 import CanvasDraw from "./Plan/src/";
 import classNames from "./Plan/src/index.css";
@@ -38,7 +37,7 @@ render() {
     return(
         <section className="main">
         <Nav/>
-            <Header/>
+            {/* <Header/> */}
             <div className="row">
             <div className="col-md-2">
             
