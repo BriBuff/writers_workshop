@@ -1,5 +1,7 @@
 import React from "react";
 import Middle from "./Middle";
+import Footer from "./Footer";
+import "./Login.css";
 
 const axios = require("axios");
 
@@ -50,30 +52,20 @@ class Login extends React.Component{
 
         } else if(this.state.password === res.data[i].password 
           && this.state.name === res.data[i].name) {
-
-            
-            console.log("res userID: " + res.data[i]._id);
-         
           this.setState({isUser: true, userID: res.data[i]._id});
 
           if(res.data[i].projects){
 
-            
             projArray.push(res.data[i].projects);
-
-            
             this.setState({projects: projArray});
           }
         }
       } 
           
           if(this.state.isUser){
-            
             console.log("this is a user");
           } else {
-            
             console.log("this is not a user");
-            
           }
          
 
@@ -86,24 +78,20 @@ class Login extends React.Component{
 
 
   render(){
+    
     if(this.state.isUser === true){
-      return  <Middle name={this.state.name} userID={this.state.userID} projects={this.state.projects}  /> 
+      return  <Middle projects={this.state.projects}  name={this.state.name} userID={this.state.userID}  /> 
     }
    
 
     return(
 
       <section id="main">
-        <nav className="navbar navbar-default ">c
+        <nav className="navbar navbar-default ">
       <div className="container">
         <div className="navbar-header">
-          <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span className="sr-only">Toggle navigation</span>
-            <span className="icon-bar"></span>
-            <span className="icon-bar"></span>
-            <span className="icon-bar"></span>
-          </button>
-         <div className ="active"  aria-hidden="true">Writer's Workshop</div> 
+
+         <div className ="heading"  aria-hidden="true">Writer's Workshop</div> 
         </div>
         <div id="navbar" className="collapse navbar-collapse">
           <ul className="nav navbar-nav">
@@ -155,6 +143,7 @@ class Login extends React.Component{
           </div>
       </div>
       <div style={{height: "200px"}}></div>
+      <Footer />
   </section>
   
   );

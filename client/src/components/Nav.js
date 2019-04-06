@@ -1,5 +1,6 @@
 import React from "react";
-import {Link} from "react-router-dom"
+import {Link} from "react-router-dom";
+import "./Login.css";
 
 
 function Nav (){
@@ -13,7 +14,7 @@ function Nav (){
               <span className="icon-bar"></span>
               <span className="icon-bar"></span>
             </button>
-            <Link to="/" className={window.location.pathname === "/" ?"active" :"nav-link"}> Writer's Workshop
+            <Link to="/" className="heading"> Writer's Workshop
             </Link>
           </div>
           <div id="navbar" className="collapse navbar-collapse">
@@ -30,7 +31,7 @@ function Nav (){
             </ul>
             <ul className="nav navbar-nav navbar-right">
                    
-                  <li><a href={"/"}>Logout</a></li>
+                  <li><a href="/" className="active nav-link">Logout</a></li>
                   
                 </ul>
           </div>

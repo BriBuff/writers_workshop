@@ -4,6 +4,7 @@ const PORT = process.env.PORT || 3001;
 const app = express();
 var mongoose = require("mongoose");
 
+require("dotenv").config();
 
 var db = require("./models");
 // Define middleware here
@@ -14,37 +15,91 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
 
-mongoose.connect("mongodb://localhost/writersworkshopdb", { useNewUrlParser: true });
-
-
-// db.User.create(
-//   {name: "jess", password:"jess"})
-//   .then(function(dbUser){
-//   console.log("user create" + dbUser)
-// })
-// .catch(function(err){
-//   console.log(err.message);
-// });
 
 
 
-//  const id = "5ca40bb250ceb20ae4a14abb";
-// db.Project.create({
-// title: "project 2",
-// body: "ksien lsni sm et dolore magna aliqua. Ut enim ad minim veniam"
-// }).then(function(dbProject){
+mongoose.connect(process.env.MONGODB_URI ||"mongodb://localhost/writersworkshopdb", { useNewUrlParser: true });
 
-//   return db.User.findOneAndUpdate({_id: id}, { $push: { projects: dbProject._id } }, { new: true })
-// }).then(function(dbUser){
-//   console.log("user here" + dbUser)
+
+
+app.get("/login/:id", function(req, res){
   
-// })
-// .catch(function(err){
-//   console.log(err);
-// });
+  db.User.find({_id:req.params.id}).populate("projects")
+  .then(function(theUser){  
+    res.json(theUser)
+  }).catch(function(err){
+    res.json(err.message);
+  })
+});
+
+app.get("/user/:id", function(req, res){
+  
+  db.User.find({_id:req.params.id}).populate("projects")
+  .then(function(theUser){
+    console.log("theUser" + theUser)
+    res.json(theUser)
+  }).catch(function(err){
+    res.json(err.message);
+  })
+});
+
+
+
+
+
+app.post("/register", function(req, res) {
+  
+  db.User.create(req.body)
+    
+    .then(function(theUser) {
+      
+      res.json(theUser);
+    })
+    .catch(function(err) {
+      res.json(err);
+    });
+});
+
+
+
+app.post("/create/:id", function(req, res) {
+  
+  const id = req.params.id;
+  
+  db.Project.create(req.body)
+
+  .then(function(dbProj){
+    res.json(dbProj);
+    return db.User.update({_id: id}, { $push: { projects: dbProj._id } }, { new: true });
+    
+  })
+  .catch
+  (err=>console.log(err))
+});
+
+app.post("/update/:id", function(req,res){
+ 
+  db.Project.updateOne({_id: req.params.id}, {title: req.body.title, body: req.body.body})
+  .then(function(proj){
+    
+    res.json(proj);
+  }).catch(err=>console.log(err))
+});
+
+app.delete("/delete/:id", function(req,res){
+  const id = req.params.id;
+  
+  db.Project.deleteOne({_id: id})
+  .then(function(proj){
+
+    
+    res.json(proj);
+  })
+  .catch(err=>console.log(err))
+});
+
 
 app.get("/login", function(req, res){
-  console.log("here login");
   
   db.User.find({}).populate("projects")
   .then(function(theUser){
@@ -53,36 +108,6 @@ app.get("/login", function(req, res){
   }).catch(function(err){
     res.json(err.message);
   })
-});
-
-app.post("/register", function(req, res) {
-  console.log("here");
-  console.log(req.body);
-  db.User.create(req.body)
-    
-    .then(function(theUser) {
-      console.log(theUser);
-      res.json(theUser);
-    })
-    .catch(function(err) {
-      res.json(err);
-    });
-});
-
-app.post("/create/:id", function(req, res) {
-  
-  const id = req.params.id;
-  console.log(id);
-  console.log(req);
-  console.log("here 4");
-  db.Project.create(req.body)
-
-  .then(function(dbProj){
-    console.log(dbProj);
-    return db.User.update({_id: id}, { $push: { projects: dbProj._id } }, { new: true })
-  })
-  .catch
-  (err=>console.log(err))
 });
 
 // Send every other request to the React app

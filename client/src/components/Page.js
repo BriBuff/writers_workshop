@@ -1,10 +1,10 @@
 import React, { Component } from "react";
-// import { render } from "react-dom";
 import Nav from "./Nav";
 import Header from "./Header";
 import Write from "./Write";
 import CanvasDraw from "./Plan/src/";
 import classNames from "./Plan/src/index.css";
+
 
 
 class Page extends Component {
@@ -120,26 +120,13 @@ render() {
           canvasWidth={this.state.width}
           canvasHeight={this.state.height}
         />
-        <button
-          onClick={() => {
-            this.loadableCanvas.loadSaveData(
-              localStorage.getItem("savedDrawing")
-            );
-          }}
-        >
-          Load what you saved previously into the following canvas. Either by
-          calling `loadSaveData()` on the component's reference or passing it
-          the `saveData` prop:
-        </button>
-        <CanvasDraw
-          ref={canvasDraw => (this.loadableCanvas = canvasDraw)}
-          saveData={localStorage.getItem("savedDrawing")}
-        />
+       
       </div>
       </div>
       </div>
       </div>
-    
+
+
 
 
         </section>
