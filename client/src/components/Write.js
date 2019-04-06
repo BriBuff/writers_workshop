@@ -29,7 +29,7 @@ class Write extends Component{
   updateProject =(event)=>{
       
     event.preventDefault();
-    const input = document.querySelectorAll("input");
+    const input = document.querySelectorAll("input, textarea");
     console.log(event.target.childNodes);
     console.log(input[0].value);
     const input1 = input[0].value;
@@ -61,15 +61,16 @@ class Write extends Component{
                       </div>
                       <div className="form-group">
                           <label>Body of Project</label>
-                          <input 
-                          style={{height: 300}}
+                          <textarea
+                          id="tinytextarea"
+                          style={{height: 700}}
                           type="text" 
                           name="body"
                           className="form-control"  
                           value={this.state.body}
                           onChange={this.handleBodyChange}
                         
-                          ></input>
+                          ></textarea>
                         </div>
                         <button  type="submit" className="btn btn-secondary btn-block">Update Project</button>
                         

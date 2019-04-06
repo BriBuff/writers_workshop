@@ -17,6 +17,7 @@ if (process.env.NODE_ENV === "production") {
 
 
 
+
 mongoose.connect(process.env.MONGODB_URI ||"mongodb://localhost/writersworkshopdb", { useNewUrlParser: true });
 
 
@@ -24,8 +25,7 @@ mongoose.connect(process.env.MONGODB_URI ||"mongodb://localhost/writersworkshopd
 app.get("/login/:id", function(req, res){
   
   db.User.find({_id:req.params.id}).populate("projects")
-  .then(function(theUser){
-  
+  .then(function(theUser){  
     res.json(theUser)
   }).catch(function(err){
     res.json(err.message);

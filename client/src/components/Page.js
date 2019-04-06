@@ -1,10 +1,10 @@
 import React, { Component } from "react";
-// import { render } from "react-dom";
 import Nav from "./Nav";
 import Header from "./Header";
 import Write from "./Write";
 import CanvasDraw from "./Plan/src/";
 import classNames from "./Plan/src/index.css";
+
 
 
 class Page extends Component {
@@ -125,7 +125,8 @@ render() {
       </div>
       </div>
       </div>
-    
+
+
 
 
         </section>

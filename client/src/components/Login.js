@@ -1,5 +1,6 @@
 import React from "react";
 import Middle from "./Middle";
+import Footer from "./Footer";
 import "./Login.css";
 
 const axios = require("axios");
@@ -89,7 +90,7 @@ class Login extends React.Component{
         <nav className="navbar navbar-default ">
       <div className="container">
         <div className="navbar-header">
-         
+
          <div className ="heading"  aria-hidden="true">Writer's Workshop</div> 
         </div>
         <div id="navbar" className="collapse navbar-collapse">
@@ -142,6 +143,7 @@ class Login extends React.Component{
           </div>
       </div>
       <div style={{height: "200px"}}></div>
+      <Footer />
   </section>
   
   );
