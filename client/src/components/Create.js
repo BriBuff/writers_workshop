@@ -23,7 +23,7 @@ class Create extends Component{
     saveProject =(event)=>{
       
       event.preventDefault();
-      const input = document.querySelectorAll("input");
+      const input = document.querySelectorAll("input, textarea");
       console.log(event.target.childNodes);
       console.log(input[0].value);
       const input1 = input[0].value;
@@ -46,7 +46,7 @@ class Create extends Component{
         
               <div className="row">
                   
-                  <div className="col-md-4 col-md-offset-4">
+                  <div className="col-md-8">
                   <form id="create" method="POST" className="well" onSubmit={(event)=> (this.saveProject(event))}>
                     
                       <div className="form-group">
@@ -60,13 +60,15 @@ class Create extends Component{
                       </div>
                       <div className="form-group">
                           <label>Body of Project</label>
-                          <input
-                          style={{height: 300}}
+                          <textarea
+                          id="tinytextarea"
                           type="text" 
+                          style={{height: 500,
+                          width: 700}}
                           name="body"
                           className="form-control"  
                           placeholder=""
-                          ></input>
+                          ></textarea>
                         </div>
                         <button  type="submit" className="btn btn-secondary btn-block">Create Project</button>
                         
