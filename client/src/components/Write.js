@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+
+import Page from "./Page";
 const axios = require("axios");
 
 
@@ -7,7 +9,9 @@ class Write extends Component{
   state={
     title: "",
     body: "",
-    projectId: ""
+    projectId: "",
+    userID: this.props.userID,
+    userDone: false
 
   
   }
@@ -43,6 +47,7 @@ class Write extends Component{
  
 
   render(){
+    
     return(
       <section className="write">
       <h1>Write</h1>

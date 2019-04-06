@@ -16,7 +16,7 @@ class Page extends Component {
       height: 700,
       brushRadius: 10,
       lazyRadius: 12,
-     
+      userID: this.props.userID
     };
 
     
@@ -45,7 +45,7 @@ render() {
                 </div>
                
             <div className="col-md-5">
-                <Write title={this.props.title} body={this.props.body} projectId={this.props.projectId}/>
+                <Write title={this.props.title} body={this.props.body} loadUsers={this.props.loadUsers}userID={this.state.userID} projectId={this.props.projectId}/>
             
             <div style={{height: "400px"}}></div>
             </div>

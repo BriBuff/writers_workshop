@@ -50,7 +50,7 @@ class Middle extends React.Component{
       console.log("down here: " + JSON.stringify(this.state.projects));
       if(this.state.isPageClicked === true){
         
-      return <Page title={this.state.title} body={this.state.body} projectId={this.state.projectId} />
+      return <Page title={this.state.title} body={this.state.body} loadUsers={this.loadUsers}userID={this.state.userID}projectId={this.state.projectId} />
       } 
       if(this.state.isCreateClicked === true){
         return <Create userID={this.state.userID}/>
@@ -87,27 +87,7 @@ class Middle extends React.Component{
                                                   <th></th>
                                               </tr>
                                                   
-                                                 {/* { this.props.projects[0] && this.props.projects[0].length &&
-                                                   this.props.projects[0].map(proj=>{
-                                                     
-                                                  
-                                                 return (
-                                                  <tr>
-                                                  <td>{proj.title}</td>
-                                                  <td>{proj.body}</td>
-                                                  <td>
-                                                  
-                                                  
-                                                  <button data-id={proj._id} 
-                                                  onClick={()=> this.setState({isPageClicked: true, projectId: proj._id, title: proj.title, body: proj.body})}>Edit</button>
-
-                                                  <button onClick={()=>this.deleteProject(proj._id)} style={{marginTop: 5}}data-id={proj._id} 
-                                                  >Delete</button>
-                                                  </td>
-                                                  </tr>
-                                                 )
-      
-                                            } )} */}
+                                                 
                                              { this.state.projects && this.state.projects.length &&
                                                    this.state.projects.map(proj=>{
                                                      
@@ -140,7 +120,7 @@ class Middle extends React.Component{
                 </div>
             </div>
             
-            <Footer/>
+            {/* <Footer/> */}
         </section>
         );
     }
